@@ -1,0 +1,43 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'MagicApp' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for MagicApp
+
+# 信号
+pod 'RxSwift'
+pod 'Moya/RxSwift'
+pod 'RxCocoa'
+# 图片缓存
+pod 'Kingfisher’
+# 字典转模型
+pod 'ObjectMapper'
+# 约束 autolayout
+pod 'SnapKit'
+# 传输协议
+pod 'SwiftProtobuf'
+# 图表绘制
+pod 'Charts'
+# 
+pod 'Firebase/Core'
+# 异步绘制框架
+pod "Texture"
+
+# OC框架
+pod 'MJRefresh'
+pod 'SVProgressHUD'
+
+  target 'MagicAppTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'MagicAppUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
