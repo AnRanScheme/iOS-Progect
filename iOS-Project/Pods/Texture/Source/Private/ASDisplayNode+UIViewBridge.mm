@@ -904,18 +904,21 @@ if (shouldApply) { _layer.layerProperty = (layerValueExpr); } else { ASDisplayNo
 (_view ? _view.viewAndPendingViewStateProperty : nodeProperty )\
 : ASDisplayNodeGetPendingState(self).viewAndPendingViewStateProperty
 
+// Attributed version of `_getAccessibilityFromViewOrProperty` macro
+#define _getAttributedAccessibilityFromViewOrProperty(nodeProperty, viewAndPendingViewStatePropertyKey) __loaded(self) ? \
+(_view ? (NSAttributedString *)[_view valueForKey: viewAndPendingViewStatePropertyKey] : nodeProperty )\
+: (NSAttributedString *)[ASDisplayNodeGetPendingState(self) valueForKey: viewAndPendingViewStatePropertyKey]
+
 // Helper function to set property values on pending state or view and property if loaded
 #define _setAccessibilityToViewAndProperty(nodeProperty, nodeValueExpr, viewAndPendingViewStateProperty, viewAndPendingViewStateExpr) \
 nodeProperty = nodeValueExpr; _setToViewOnly(viewAndPendingViewStateProperty, viewAndPendingViewStateExpr)
 
-@implementation ASDisplayNode (UIViewBridgeAccessibility)
+// Attributed version of `_setAccessibilityToViewAndProperty` macro
+#define _setAttributedAccessibilityToViewAndProperty(nodeProperty, nodeValueExpr, viewAndPendingViewStatePropertyKey, viewAndPendingViewStateExpr) \
+nodeProperty = nodeValueExpr; BOOL shouldApply = ASDisplayNodeShouldApplyBridgedWriteToView(self); \
+if (shouldApply) { [_view setValue:(viewAndPendingViewStateExpr) forKey: viewAndPendingViewStatePropertyKey]; } else { [ASDisplayNodeGetPendingState(self) setValue:(viewAndPendingViewStateExpr) forKey:viewAndPendingViewStatePropertyKey]; }
 
-// iOS 11 only properties. Add this to silence "unimplemented selector" warnings
-// in old SDKs. If the caller doesn't respect our API_AVAILABLE attributes, then they
-// get an appropriate "unrecognized selector" runtime error.
-#if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_11_0
-@dynamic accessibilityAttributedLabel, accessibilityAttributedHint, accessibilityAttributedValue;
-#endif
+@implementation ASDisplayNode (UIViewBridgeAccessibility)
 
 - (BOOL)isAccessibilityElement
 {
@@ -939,28 +942,24 @@ nodeProperty = nodeValueExpr; _setToViewOnly(viewAndPendingViewStateProperty, vi
 {
   _bridge_prologue_write;
   _setAccessibilityToViewAndProperty(_accessibilityLabel, accessibilityLabel, accessibilityLabel, accessibilityLabel);
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_11_0
-  if (AS_AVAILABLE_IOS(11)) {
+  if (AS_AT_LEAST_IOS11) {
     NSAttributedString *accessibilityAttributedLabel = accessibilityLabel ? [[NSAttributedString alloc] initWithString:accessibilityLabel] : nil;
-    _setAccessibilityToViewAndProperty(_accessibilityAttributedLabel, accessibilityAttributedLabel, accessibilityAttributedLabel, accessibilityAttributedLabel);
+    _setAttributedAccessibilityToViewAndProperty(_accessibilityAttributedLabel, accessibilityAttributedLabel, @"accessibilityAttributedLabel", accessibilityAttributedLabel);
   }
-#endif
 }
 
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_11_0
 - (NSAttributedString *)accessibilityAttributedLabel
 {
   _bridge_prologue_read;
-  return _getAccessibilityFromViewOrProperty(_accessibilityAttributedLabel, accessibilityAttributedLabel);
+  return _getAttributedAccessibilityFromViewOrProperty(_accessibilityAttributedLabel, @"accessibilityAttributedLabel");
 }
 
 - (void)setAccessibilityAttributedLabel:(NSAttributedString *)accessibilityAttributedLabel
 {
   _bridge_prologue_write;
-  { _setAccessibilityToViewAndProperty(_accessibilityAttributedLabel, accessibilityAttributedLabel, accessibilityAttributedLabel, accessibilityAttributedLabel); }
+  { _setAttributedAccessibilityToViewAndProperty(_accessibilityAttributedLabel, accessibilityAttributedLabel, @"accessibilityAttributedLabel", accessibilityAttributedLabel); }
   { _setAccessibilityToViewAndProperty(_accessibilityLabel, accessibilityAttributedLabel.string, accessibilityLabel, accessibilityAttributedLabel.string); }
 }
-#endif
 
 - (NSString *)accessibilityHint
 {
@@ -972,29 +971,24 @@ nodeProperty = nodeValueExpr; _setToViewOnly(viewAndPendingViewStateProperty, vi
 {
   _bridge_prologue_write;
   _setAccessibilityToViewAndProperty(_accessibilityHint, accessibilityHint, accessibilityHint, accessibilityHint);
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_11_0
-  if (AS_AVAILABLE_IOS(11)) {
+  if (AS_AT_LEAST_IOS11) {
     NSAttributedString *accessibilityAttributedHint = accessibilityHint ? [[NSAttributedString alloc] initWithString:accessibilityHint] : nil;
-    _setAccessibilityToViewAndProperty(_accessibilityAttributedHint, accessibilityAttributedHint, accessibilityAttributedHint, accessibilityAttributedHint);
+    _setAttributedAccessibilityToViewAndProperty(_accessibilityAttributedHint, accessibilityAttributedHint, @"accessibilityAttributedHint", accessibilityAttributedHint);
   }
-#endif
 }
 
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_11_0
 - (NSAttributedString *)accessibilityAttributedHint
 {
   _bridge_prologue_read;
-  return _getAccessibilityFromViewOrProperty(_accessibilityAttributedHint, accessibilityAttributedHint);
+  return _getAttributedAccessibilityFromViewOrProperty(_accessibilityAttributedHint, @"accessibilityAttributedHint");
 }
 
 - (void)setAccessibilityAttributedHint:(NSAttributedString *)accessibilityAttributedHint
 {
   _bridge_prologue_write;
-  { _setAccessibilityToViewAndProperty(_accessibilityAttributedHint, accessibilityAttributedHint, accessibilityAttributedHint, accessibilityAttributedHint); }
-
+  { _setAttributedAccessibilityToViewAndProperty(_accessibilityAttributedHint, accessibilityAttributedHint, @"accessibilityAttributedHint", accessibilityAttributedHint); }
   { _setAccessibilityToViewAndProperty(_accessibilityHint, accessibilityAttributedHint.string, accessibilityHint, accessibilityAttributedHint.string); }
 }
-#endif
 
 - (NSString *)accessibilityValue
 {
@@ -1006,28 +1000,24 @@ nodeProperty = nodeValueExpr; _setToViewOnly(viewAndPendingViewStateProperty, vi
 {
   _bridge_prologue_write;
   _setAccessibilityToViewAndProperty(_accessibilityValue, accessibilityValue, accessibilityValue, accessibilityValue);
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_11_0
-  if (AS_AVAILABLE_IOS(11)) {
+  if (AS_AT_LEAST_IOS11) {
     NSAttributedString *accessibilityAttributedValue = accessibilityValue ? [[NSAttributedString alloc] initWithString:accessibilityValue] : nil;
-    _setAccessibilityToViewAndProperty(_accessibilityAttributedValue, accessibilityAttributedValue, accessibilityAttributedValue, accessibilityAttributedValue);
+    _setAttributedAccessibilityToViewAndProperty(_accessibilityAttributedValue, accessibilityAttributedValue, @"accessibilityAttributedValue", accessibilityAttributedValue);
   }
-#endif
 }
 
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_11_0
 - (NSAttributedString *)accessibilityAttributedValue
 {
   _bridge_prologue_read;
-  return _getAccessibilityFromViewOrProperty(_accessibilityAttributedValue, accessibilityAttributedValue);
+  return _getAttributedAccessibilityFromViewOrProperty(_accessibilityAttributedValue, @"accessibilityAttributedValue");
 }
 
 - (void)setAccessibilityAttributedValue:(NSAttributedString *)accessibilityAttributedValue
 {
   _bridge_prologue_write;
-  { _setAccessibilityToViewAndProperty(_accessibilityAttributedValue, accessibilityAttributedValue, accessibilityAttributedValue, accessibilityAttributedValue); }
+  { _setAttributedAccessibilityToViewAndProperty(_accessibilityAttributedValue, accessibilityAttributedValue, @"accessibilityAttributedValue", accessibilityAttributedValue); }
   { _setAccessibilityToViewAndProperty(_accessibilityValue, accessibilityAttributedValue.string, accessibilityValue, accessibilityAttributedValue.string); }
 }
-#endif
 
 - (UIAccessibilityTraits)accessibilityTraits
 {

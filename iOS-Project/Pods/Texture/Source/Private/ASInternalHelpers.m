@@ -60,7 +60,7 @@ IMP ASReplaceMethodWithBlock(Class c, SEL origSEL, id block)
   }
 }
 
-void ASPerformBlockOnMainThread(void (^block)(void))
+void ASPerformBlockOnMainThread(void (^block)())
 {
   if (block == nil){
     return;
@@ -72,7 +72,7 @@ void ASPerformBlockOnMainThread(void (^block)(void))
   }
 }
 
-void ASPerformBlockOnBackgroundThread(void (^block)(void))
+void ASPerformBlockOnBackgroundThread(void (^block)())
 {
   if (block == nil){
     return;
@@ -84,7 +84,7 @@ void ASPerformBlockOnBackgroundThread(void (^block)(void))
   }
 }
 
-void ASPerformBackgroundDeallocation(id __strong _Nullable * _Nonnull object)
+void ASPerformBackgroundDeallocation(id object)
 {
   [[ASDeallocQueue sharedDeallocationQueue] releaseObjectInBackground:object];
 }

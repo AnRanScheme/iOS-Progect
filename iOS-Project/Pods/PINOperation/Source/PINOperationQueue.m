@@ -94,7 +94,7 @@
 - (instancetype)initWithMaxConcurrentOperations:(NSUInteger)maxConcurrentOperations concurrentQueue:(dispatch_queue_t)concurrentQueue
 {
   if (self = [super init]) {
-    NSAssert(maxConcurrentOperations > 0, @"Max concurrent operations must be greater than 0.");
+    NSAssert(maxConcurrentOperations > 1, @"Max concurrent operations must be greater than 1. If it's one, just use a serial queue!");
     _maxConcurrentOperations = maxConcurrentOperations;
     _operationReferenceCount = 0;
     
@@ -148,24 +148,12 @@
   return reference;
 }
 
-// Deprecated
 - (id <PINOperationReference>)addOperation:(dispatch_block_t)block
 {
-  return [self scheduleOperation:block];
+  return [self addOperation:block withPriority:PINOperationQueuePriorityDefault];
 }
 
-- (id <PINOperationReference>)scheduleOperation:(dispatch_block_t)block
-{
-  return [self scheduleOperation:block withPriority:PINOperationQueuePriorityDefault];
-}
-
-// Deprecated
 - (id <PINOperationReference>)addOperation:(dispatch_block_t)block withPriority:(PINOperationQueuePriority)priority
-{
-  return [self scheduleOperation:block withPriority:priority];
-}
-
-- (id <PINOperationReference>)scheduleOperation:(dispatch_block_t)block withPriority:(PINOperationQueuePriority)priority
 {
   PINOperation *operation = [PINOperation operationWithBlock:^(id data) { block(); }
                                                    reference:[self nextOperationReference]
@@ -182,7 +170,6 @@
   return operation.reference;
 }
 
-// Deprecated
 - (id<PINOperationReference>)addOperation:(PINOperationBlock)block
                              withPriority:(PINOperationQueuePriority)priority
                                identifier:(NSString *)identifier
@@ -190,28 +177,13 @@
                       dataCoalescingBlock:(PINOperationDataCoalescingBlock)dataCoalescingBlock
                                completion:(dispatch_block_t)completion
 {
-  return [self scheduleOperation:block
-                    withPriority:priority
-                      identifier:identifier
-                  coalescingData:coalescingData
-             dataCoalescingBlock:dataCoalescingBlock
-                      completion:completion];
-}
-
-- (id<PINOperationReference>)scheduleOperation:(PINOperationBlock)block
-                                  withPriority:(PINOperationQueuePriority)priority
-                                    identifier:(NSString *)identifier
-                                coalescingData:(id)coalescingData
-                           dataCoalescingBlock:(PINOperationDataCoalescingBlock)dataCoalescingBlock
-                                    completion:(dispatch_block_t)completion
-{
   id<PINOperationReference> reference = nil;
   BOOL isNewOperation = NO;
   
   [self lock];
     PINOperation *operation = nil;
     if (identifier != nil && (operation = [_identifierToOperations objectForKey:identifier]) != nil) {
-      // There is an exisiting operation with the provided identifier, let's coalesce these operations
+      // There is an exisiting operation with the provided identifier, let's coallesce these operations
       if (dataCoalescingBlock != nil) {
         operation.data = dataCoalescingBlock(operation.data, coalescingData);
       }
@@ -278,7 +250,7 @@
 
 - (void)setMaxConcurrentOperations:(NSUInteger)maxConcurrentOperations
 {
-  NSAssert(maxConcurrentOperations > 0, @"Max concurrent operations must be greater than 0.");
+  NSAssert(maxConcurrentOperations > 1, @"Max concurrent operations must be greater than 1. If it's one, just use a serial queue!");
   [self lock];
     __block NSInteger difference = maxConcurrentOperations - _maxConcurrentOperations;
     _maxConcurrentOperations = maxConcurrentOperations;
@@ -342,7 +314,6 @@
 - (void)scheduleNextOperations:(BOOL)onlyCheckSerial
 {
   [self lock];
-  
     //get next available operation in order, ignoring priority and run it on the serial queue
     if (_serialQueueBusy == NO) {
       PINOperation *operation = [self locked_nextOperationByQueue];
@@ -364,38 +335,30 @@
         });
       }
     }
-  
-  NSInteger maxConcurrentOperations = _maxConcurrentOperations;
-  
   [self unlock];
   
   if (onlyCheckSerial) {
     return;
   }
-
-  //if only one concurrent operation is set, let's just use the serial queue for executing it
-  if (maxConcurrentOperations < 2) {
-    return;
-  }
   
   dispatch_async(_semaphoreQueue, ^{
-    dispatch_semaphore_wait(_concurrentSemaphore, DISPATCH_TIME_FOREVER);
-    [self lock];
-      PINOperation *operation = [self locked_nextOperationByPriority];
-    [self unlock];
-  
-    if (operation) {
-      dispatch_async(_concurrentQueue, ^{
-        operation.block(operation.data);
-        for (dispatch_block_t completion in operation.completions) {
-          completion();
-        }
-        dispatch_group_leave(_group);
+      dispatch_semaphore_wait(_concurrentSemaphore, DISPATCH_TIME_FOREVER);
+      [self lock];
+        PINOperation *operation = [self locked_nextOperationByPriority];
+      [self unlock];
+    
+      if (operation) {
+        dispatch_async(_concurrentQueue, ^{
+          operation.block(operation.data);
+          for (dispatch_block_t completion in operation.completions) {
+            completion();
+          }
+          dispatch_group_leave(_group);
+          dispatch_semaphore_signal(_concurrentSemaphore);
+        });
+      } else {
         dispatch_semaphore_signal(_concurrentSemaphore);
-      });
-    } else {
-      dispatch_semaphore_signal(_concurrentSemaphore);
-    }
+      }
   });
 }
 

@@ -372,8 +372,8 @@ static NSString * const kCellReuseIdentifier = @"_ASTableViewCell";
   [self setAsyncDataSource:nil];
 
   // Data controller & range controller may own a ton of nodes, let's deallocate those off-main
-  ASPerformBackgroundDeallocation(&_dataController);
-  ASPerformBackgroundDeallocation(&_rangeController);
+  ASPerformBackgroundDeallocation(_dataController);
+  ASPerformBackgroundDeallocation(_rangeController);
 }
 
 #pragma mark -
@@ -553,7 +553,7 @@ static NSString * const kCellReuseIdentifier = @"_ASTableViewCell";
 
 - (void)relayoutItems
 {
-  [_dataController relayoutAllNodesWithInvalidationBlock:nil];
+  [_dataController relayoutAllNodes];
 }
 
 - (void)setTuningParameters:(ASRangeTuningParameters)tuningParameters forRangeType:(ASLayoutRangeType)rangeType
@@ -588,12 +588,18 @@ static NSString * const kCellReuseIdentifier = @"_ASTableViewCell";
 
 - (NSIndexPath *)convertIndexPathFromTableNode:(NSIndexPath *)indexPath waitingIfNeeded:(BOOL)wait
 {
-  NSIndexPath *viewIndexPath = [_dataController.visibleMap convertIndexPath:indexPath fromMap:_dataController.pendingMap];
-  if (viewIndexPath == nil && wait) {
-    [self waitUntilAllUpdatesAreCommitted];
-    return [self convertIndexPathFromTableNode:indexPath waitingIfNeeded:NO];
+  // If this is a section index path, we don't currently have a method
+  // to do a mapping.
+  if (indexPath == nil || indexPath.row == NSNotFound) {
+    return indexPath;
+  } else {
+    NSIndexPath *viewIndexPath = [_dataController.visibleMap convertIndexPath:indexPath fromMap:_dataController.pendingMap];
+    if (viewIndexPath == nil && wait) {
+      [self waitUntilAllUpdatesAreCommitted];
+      return [self convertIndexPathFromTableNode:indexPath waitingIfNeeded:NO];
+    }
+    return viewIndexPath;
   }
-  return viewIndexPath;
 }
 
 - (NSIndexPath *)convertIndexPathToTableNode:(NSIndexPath *)indexPath
@@ -602,7 +608,13 @@ static NSString * const kCellReuseIdentifier = @"_ASTableViewCell";
     return nil;
   }
 
-  return [_dataController.pendingMap convertIndexPath:indexPath fromMap:_dataController.visibleMap];
+  // If this is a section index path, we don't currently have a method
+  // to do a mapping.
+  if (indexPath.row == NSNotFound) {
+    return indexPath;
+  } else {
+    return [_dataController.pendingMap convertIndexPath:indexPath fromMap:_dataController.visibleMap];
+  }
 }
 
 - (NSArray<NSIndexPath *> *)convertIndexPathsToTableNode:(NSArray<NSIndexPath *> *)indexPaths
@@ -748,7 +760,7 @@ static NSString * const kCellReuseIdentifier = @"_ASTableViewCell";
     _nodesConstrainedWidth = constrainedWidth;
 
     [self beginUpdates];
-    [_dataController relayoutAllNodesWithInvalidationBlock:nil];
+    [_dataController relayoutAllNodes];
     [self endUpdatesAnimated:(ASDisplayNodeLayerHasAnimations(self.layer) == NO) completion:nil];
   } else {
     if (_cellsForLayoutUpdates.count > 0) {
@@ -1306,12 +1318,7 @@ static NSString * const kCellReuseIdentifier = @"_ASTableViewCell";
 
 - (void)setLeadingScreensForBatching:(CGFloat)leadingScreensForBatching
 {
-  if (_leadingScreensForBatching != leadingScreensForBatching) {
-    _leadingScreensForBatching = leadingScreensForBatching;
-    ASPerformBlockOnMainThread(^{
-      [self _checkForBatchFetching];
-    });
-  }
+  _leadingScreensForBatching = leadingScreensForBatching;
 }
 
 - (BOOL)automaticallyAdjustsContentOffset

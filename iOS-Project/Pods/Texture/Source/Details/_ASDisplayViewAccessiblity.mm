@@ -84,13 +84,11 @@ static void SortAccessibilityElements(NSMutableArray *elements)
   accessibilityElement.accessibilityHint = node.accessibilityHint;
   accessibilityElement.accessibilityValue = node.accessibilityValue;
   accessibilityElement.accessibilityTraits = node.accessibilityTraits;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_11_0
-  if (AS_AVAILABLE_IOS(11)) {
-    accessibilityElement.accessibilityAttributedLabel = node.accessibilityAttributedLabel;
-    accessibilityElement.accessibilityAttributedHint = node.accessibilityAttributedHint;
-    accessibilityElement.accessibilityAttributedValue = node.accessibilityAttributedValue;
+  if (AS_AT_LEAST_IOS11) {
+    [accessibilityElement setValue:node.accessibilityAttributedLabel forKey:@"accessibilityAttributedLabel"];
+    [accessibilityElement setValue:node.accessibilityAttributedHint forKey:@"accessibilityAttributedHint"];
+    [accessibilityElement setValue:node.accessibilityAttributedValue forKey:@"accessibilityAttributedValue"];
   }
-#endif
   return accessibilityElement;
 }
 
@@ -178,8 +176,7 @@ static void CollectAccessibilityElementsForContainer(ASDisplayNode *container, _
 
   SortAccessibilityElements(labeledNodes);
 
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_11_0
-  if (AS_AVAILABLE_IOS(11)) {
+  if (AS_AT_LEAST_IOS11) {
     NSArray *attributedLabels = [labeledNodes valueForKey:@"accessibilityAttributedLabel"];
     NSMutableAttributedString *attributedLabel = [NSMutableAttributedString new];
     [attributedLabels enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -188,10 +185,8 @@ static void CollectAccessibilityElementsForContainer(ASDisplayNode *container, _
       }
       [attributedLabel appendAttributedString:(NSAttributedString *)obj];
     }];
-    accessiblityElement.accessibilityAttributedLabel = attributedLabel;
-  } else
-#endif
-  {
+    [accessiblityElement setValue:attributedLabel forKey:@"accessibilityAttributedLabel"];
+  } else {
     NSArray *labels = [labeledNodes valueForKey:@"accessibilityLabel"];
     accessiblityElement.accessibilityLabel = [labels componentsJoinedByString:@", "];
   }

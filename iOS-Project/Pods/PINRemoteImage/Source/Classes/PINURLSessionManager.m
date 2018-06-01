@@ -8,11 +8,12 @@
 
 #import "PINURLSessionManager.h"
 
-#import "PINSpeedRecorder.h"
-
 NSString * const PINURLErrorDomain = @"PINURLErrorDomain";
 
 @interface PINURLSessionManager () <NSURLSessionDelegate, NSURLSessionDataDelegate>
+{
+    NSCache *_timeToFirstByteCache;
+}
 
 @property (nonatomic, strong) NSLock *sessionManagerLock;
 @property (nonatomic, strong) NSURLSession *session;
@@ -37,6 +38,9 @@ NSString * const PINURLErrorDomain = @"PINURLErrorDomain";
         self.session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:self.operationQueue];
         self.completions = [[NSMutableDictionary alloc] init];
         self.delegateQueues = [[NSMutableDictionary alloc] init];
+        
+        _timeToFirstByteCache = [[NSCache alloc] init];
+        _timeToFirstByteCache.countLimit = 25;
     }
     return self;
 }
@@ -110,7 +114,7 @@ NSString * const PINURLErrorDomain = @"PINURLErrorDomain";
     }
 }
 
-- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential *credential))completionHandler
+- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential *credential))completionHandler 
 {
     [self lock];
         dispatch_queue_t delegateQueue = self.delegateQueues[@(task.taskIdentifier)];
@@ -120,7 +124,7 @@ NSString * const PINURLErrorDomain = @"PINURLErrorDomain";
     if (delegateQueue == nil) {
         return;
     }
-    
+
     __weak typeof(self) weakSelf = self;
     dispatch_async(delegateQueue, ^{
         typeof(self) strongSelf = weakSelf;
@@ -178,6 +182,7 @@ NSString * const PINURLErrorDomain = @"PINURLErrorDomain";
     __weak typeof(self) weakSelf = self;
     dispatch_async(delegateQueue, ^{
         typeof(self) strongSelf = weakSelf;
+        [strongSelf.delegate didCompleteTask:task withError:error];
         
         [strongSelf lock];
             PINURLSessionDataTaskCompletion completionHandler = strongSelf.completions[@(task.taskIdentifier)];
@@ -191,19 +196,57 @@ NSString * const PINURLErrorDomain = @"PINURLErrorDomain";
     });
 }
 
-#pragma mark - session statistics
-
 - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didFinishCollectingMetrics:(NSURLSessionTaskMetrics *)metrics
 {
-    if (@available(iOS 10.0, macOS 10.12, *)) {
-        [[PINSpeedRecorder sharedRecorder] processMetrics:metrics forTask:task];
+    NSDate *requestStart = [NSDate distantFuture];
+    NSDate *firstByte = [NSDate distantPast];
+    
+    for (NSURLSessionTaskTransactionMetrics *metric in metrics.transactionMetrics) {
+        if (metric.requestStartDate == nil || metric.responseStartDate == nil) {
+            //Only evaluate requests which completed their first byte.
+            return;
+        }
+        if ([requestStart compare:metric.requestStartDate] != NSOrderedAscending) {
+            requestStart = metric.requestStartDate;
+        }
+        if ([firstByte compare:metric.responseStartDate] != NSOrderedDescending) {
+            firstByte = metric.responseStartDate;
+        }
     }
+    
+    [self storeTimeToFirstByte:[firstByte timeIntervalSinceDate:requestStart] forHost:task.originalRequest.URL.host];
 }
 
 - (BOOL)responseRecoverableFrom404:(NSHTTPURLResponse*)response
 {
     return response.statusCode == 404
-        && [response.allHeaderFields[@"content-type"] rangeOfString:@"image"].location != NSNotFound;
+            && [response.allHeaderFields[@"content-type"] rangeOfString:@"image"].location != NSNotFound;
+}
+
+/* We don't bother locking around the timeToFirstByteCache because NSCache itself is
+ threadsafe and we're not concerned about dropping or overwriting a result. */
+- (void)storeTimeToFirstByte:(NSTimeInterval)timeToFirstByte forHost:(NSString *)host
+{
+    NSNumber *existingTimeToFirstByte = [_timeToFirstByteCache objectForKey:host];
+    if (existingTimeToFirstByte) {
+        //We're obviously seriously weighting the latest result by doing this. Seems reasonable in
+        //possibly changing network conditions.
+        existingTimeToFirstByte = @( (timeToFirstByte + [existingTimeToFirstByte doubleValue]) / 2.0 );
+    } else {
+        existingTimeToFirstByte = [NSNumber numberWithDouble:timeToFirstByte];
+    }
+    [_timeToFirstByteCache setObject:existingTimeToFirstByte forKey:host];
+}
+
+- (NSTimeInterval)weightedTimeToFirstByteForHost:(NSString *)host
+{
+    NSTimeInterval timeToFirstByte;
+    timeToFirstByte = [[_timeToFirstByteCache objectForKey:host] doubleValue];
+    if (timeToFirstByte <= 0 + DBL_EPSILON) {
+        //return 0 if we're not sure.
+        timeToFirstByte = 0;
+    }
+    return timeToFirstByte;
 }
 
 #if DEBUG
@@ -217,4 +260,3 @@ NSString * const PINURLErrorDomain = @"PINURLErrorDomain";
 #endif
 
 @end
-

@@ -34,7 +34,7 @@ import UIKit
 public typealias ImageDownloaderProgressBlock = DownloadProgressBlock
 
 /// Completion block of downloader.
-public typealias ImageDownloaderCompletionHandler = ((_ image: Image?, _ error: NSError?, _ url: URL?, _ originalData: Data?) -> Void)
+public typealias ImageDownloaderCompletionHandler = ((_ image: Image?, _ error: NSError?, _ url: URL?, _ originalData: Data?) -> ())
 
 /// Download task.
 public struct RetrieveImageDownloadTask {
@@ -421,7 +421,7 @@ extension ImageDownloader {
 /// If we use `ImageDownloader` as the session delegate, it will not be released.
 /// So we need an additional handler to break the retain cycle.
 // See https://github.com/onevcat/Kingfisher/issues/235
-final class ImageDownloaderSessionHandler: NSObject, URLSessionDataDelegate, AuthenticationChallengeResponsable {
+class ImageDownloaderSessionHandler: NSObject, URLSessionDataDelegate, AuthenticationChallengeResponsable {
     
     // The holder will keep downloader not released while a data task is being executed.
     // It will be set when the task started, and reset when the task finished.
@@ -566,6 +566,7 @@ final class ImageDownloaderSessionHandler: NSObject, URLSessionDataDelegate, Aut
                 let callbackQueue = options.callbackDispatchQueue
                 
                 let processor = options.processor
+                
                 var image = imageCache[processor.identifier]
                 if let data = data, image == nil {
                     image = processor.process(item: .data(data), options: options)
@@ -575,17 +576,14 @@ final class ImageDownloaderSessionHandler: NSObject, URLSessionDataDelegate, Aut
                 }
                 
                 if let image = image {
-
+                    
                     downloader.delegate?.imageDownloader(downloader, didDownload: image, for: url, with: task.response)
-
-                    let imageModifier = options.imageModifier
-                    let finalImage = imageModifier.modify(image)
-
+                    
                     if options.backgroundDecode {
-                        let decodedImage = finalImage.kf.decoded
+                        let decodedImage = image.kf.decoded
                         callbackQueue.safeAsync { completionHandler?(decodedImage, nil, url, data) }
                     } else {
-                        callbackQueue.safeAsync { completionHandler?(finalImage, nil, url, data) }
+                        callbackQueue.safeAsync { completionHandler?(image, nil, url, data) }
                     }
                     
                 } else {

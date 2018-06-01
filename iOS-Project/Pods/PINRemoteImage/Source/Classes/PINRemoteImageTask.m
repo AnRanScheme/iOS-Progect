@@ -115,12 +115,12 @@
 {
     __block BOOL noMoreCompletions;
     [self.lock lockWithBlock:^{
-        noMoreCompletions = [self l_cancelWithUUID:UUID];
+        noMoreCompletions = [self l_cancelWithUUID:UUID resume:resume];
     }];
     return noMoreCompletions;
 }
 
-- (BOOL)l_cancelWithUUID:(NSUUID *)UUID
+- (BOOL)l_cancelWithUUID:(NSUUID *)UUID resume:(PINResume **)resume
 {
     BOOL noMoreCompletions = NO;
     [self l_removeCallbackWithUUID:UUID];

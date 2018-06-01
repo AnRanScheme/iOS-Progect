@@ -20,37 +20,6 @@
 
 #import <tgmath.h>
 
-@interface ASTextKitComponentsTextView ()
-@property (atomic, assign) CGRect threadSafeBounds;
-@end
-
-@implementation ASTextKitComponentsTextView
-
-- (instancetype)initWithFrame:(CGRect)frame textContainer:(NSTextContainer *)textContainer
-{
-  self = [super initWithFrame:frame textContainer:textContainer];
-  if (self) {
-    _threadSafeBounds = self.bounds;
-  }
-  return self;
-}
-
-- (void)setFrame:(CGRect)frame
-{
-  ASDisplayNodeAssertMainThread();
-  [super setFrame:frame];
-  self.threadSafeBounds = self.bounds;
-}
-
-- (void)setBounds:(CGRect)bounds
-{
-  ASDisplayNodeAssertMainThread();
-  [super setBounds:bounds];
-  self.threadSafeBounds = bounds;
-}
-
-@end
-
 @interface ASTextKitComponents ()
 
 // read-write redeclarations
@@ -96,11 +65,10 @@
 
 - (void)dealloc
 {
-  // Nil out all delegates to prevent crash
-  if (_textView) {
-    ASDisplayNodeAssertMainThread();
-    _textView.delegate = nil;
-  }
+  ASDisplayNodeAssertMainThread();
+
+  // Nil out all delegate to prevent crash
+  _textView.delegate = nil;
   _layoutManager.delegate = nil;
 }
 
@@ -112,7 +80,7 @@
 
   // If our text-view's width is already the constrained width, we can use our existing TextKit stack for this sizing calculation.
   // Otherwise, we create a temporary stack to size for `constrainedWidth`.
-  if (CGRectGetWidth(components.textView.threadSafeBounds) != constrainedWidth) {
+  if (CGRectGetWidth(components.textView.bounds) != constrainedWidth) {
     components = [ASTextKitComponents componentsWithAttributedSeedString:components.textStorage textContainerSize:CGSizeMake(constrainedWidth, CGFLOAT_MAX)];
   }
 
@@ -134,7 +102,7 @@
   
   // Always use temporary stack in case of threading issues
   components = [ASTextKitComponents componentsWithAttributedSeedString:components.textStorage textContainerSize:CGSizeMake(constrainedWidth, CGFLOAT_MAX)];
-
+  
   // Force glyph generation and layout, which may not have happened yet (and isn't triggered by - usedRectForTextContainer:).
   [components.layoutManager ensureLayoutForTextContainer:components.textContainer];
   

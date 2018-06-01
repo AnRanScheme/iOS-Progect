@@ -211,9 +211,8 @@ ASLayoutElementStyleExtensibilityForwarding
  * @discussion The size of a root node is determined by each subnode. Calling invalidateSize will let the root node know
  * that the intrinsic size of the receiver node is no longer valid and a resizing of the root node needs to happen.
  */
-- (void)_u_setNeedsLayoutFromAbove
+- (void)_setNeedsLayoutFromAbove
 {
-  ASDisplayNodeAssertLockUnownedByCurrentThread(__instanceLock);
   as_activity_create_for_scope("Set needs layout from above");
   ASDisplayNodeAssertThreadAffinity(self);
 
@@ -228,7 +227,7 @@ ASLayoutElementStyleExtensibilityForwarding
   
   if (supernode) {
     // Threading model requires that we unlock before calling a method on our parent.
-    [supernode _u_setNeedsLayoutFromAbove];
+    [supernode _setNeedsLayoutFromAbove];
   } else {
     // Let the root node method know that the size was invalidated
     [self _rootNodeDidInvalidateSize];
@@ -288,10 +287,8 @@ ASLayoutElementStyleExtensibilityForwarding
   }
 }
 
-- (void)_u_measureNodeWithBoundsIfNecessary:(CGRect)bounds
+- (void)_locked_measureNodeWithBoundsIfNecessary:(CGRect)bounds
 {
-  ASDisplayNodeAssertLockUnownedByCurrentThread(__instanceLock);
-  ASDN::MutexLocker l(__instanceLock__);
   // Check if we are a subnode in a layout transition.
   // In this case no measurement is needed as it's part of the layout transition
   if ([self _isLayoutTransitionInvalid]) {
@@ -371,10 +368,8 @@ ASLayoutElementStyleExtensibilityForwarding
     // In this case, we need to detect that we've already asked to be resized to match this
     // particular ASLayout object, and shouldn't loop asking again unless we have a different ASLayout.
     nextLayout->requestedLayoutFromAbove = YES;
-    __instanceLock__.unlock();
-    [self _u_setNeedsLayoutFromAbove];
-    __instanceLock__.lock();
-    // Update the layout's version here because _u_setNeedsLayoutFromAbove calls __setNeedsLayout which in turn increases _layoutVersion
+    [self _setNeedsLayoutFromAbove];
+    // Update the layout's version here because _setNeedsLayoutFromAbove calls __setNeedsLayout which in turn increases _layoutVersion
     // Failing to do this will cause the layout to be invalid immediately 
     nextLayout->version = _layoutVersion;
   }
@@ -394,7 +389,7 @@ ASLayoutElementStyleExtensibilityForwarding
 
 - (ASSizeRange)_locked_constrainedSizeForLayoutPass
 {
-  // TODO: The logic in -_u_setNeedsLayoutFromAbove seems correct and doesn't use this method.
+  // TODO: The logic in -_setNeedsLayoutFromAbove seems correct and doesn't use this method.
   // logic seems correct.  For what case does -this method need to do the CGSizeEqual checks?
   // IF WE CAN REMOVE BOUNDS CHECKS HERE, THEN WE CAN ALSO REMOVE "REQUESTED FROM ABOVE" CHECK
   

@@ -26,12 +26,6 @@ typedef void (^PINDiskCacheObjectBlock)(PINDiskCache *cache, NSString *key, id <
 typedef void (^PINDiskCacheFileURLBlock)(NSString *key, NSURL * _Nullable fileURL);
 
 /**
- A callback block used for enumeration which provides the key and fileURL of the object plus a stop flag that
- may be flipped by the caller.
- */
-typedef void (^PINDiskCacheFileURLEnumerationBlock)(NSString *key, NSURL * _Nullable fileURL, BOOL *stop);
-
-/**
  A callback block which provides a BOOL value as argument
  */
 typedef void (^PINDiskCacheContainsBlock)(BOOL containsObject);
@@ -405,7 +399,7 @@ PIN_SUBCLASSING_RESTRICTED
  lock is held.
  
  */
-- (void)enumerateObjectsWithBlockAsync:(PINDiskCacheFileURLEnumerationBlock)block completionBlock:(nullable PINCacheBlock)completionBlock;
+- (void)enumerateObjectsWithBlockAsync:(PINDiskCacheFileURLBlock)block completionBlock:(nullable PINCacheBlock)completionBlock;
 
 #pragma mark - Synchronous Methods
 /// @name Synchronous Methods
@@ -486,7 +480,7 @@ PIN_SUBCLASSING_RESTRICTED
  lock is held.
  
  */
-- (void)enumerateObjectsWithBlock:(PIN_NOESCAPE PINDiskCacheFileURLEnumerationBlock)block;
+- (void)enumerateObjectsWithBlock:(PIN_NOESCAPE PINDiskCacheFileURLBlock)block;
 
 @end
 

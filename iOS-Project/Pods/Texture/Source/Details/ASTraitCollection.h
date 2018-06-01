@@ -42,7 +42,7 @@ typedef struct ASPrimitiveTraitCollection {
 /**
  * Creates ASPrimitiveTraitCollection with default values.
  */
-extern ASPrimitiveTraitCollection ASPrimitiveTraitCollectionMakeDefault(void);
+extern ASPrimitiveTraitCollection ASPrimitiveTraitCollectionMakeDefault();
 
 /**
  * Creates a ASPrimitiveTraitCollection from a given UITraitCollection.

@@ -10,12 +10,8 @@
 #endif
 #endif
 
-#import "PINAnimatedImage.h"
-#import "PINCachedAnimatedImage.h"
-#import "PINGIFAnimatedImage.h"
-#import "PINMemMapAnimatedImage.h"
-#import "PINWebPAnimatedImage.h"
 #import "NSData+ImageDetectors.h"
+#import "NSURLSessionTask+Timing.h"
 #import "PINImage+DecodedImage.h"
 #import "PINImage+ScaledImage.h"
 #import "PINImage+WebP.h"
@@ -23,7 +19,8 @@
 #import "PINButton+PINRemoteImage.h"
 #import "PINImageView+PINRemoteImage.h"
 #import "PINAlternateRepresentationProvider.h"
-#import "PINGIFAnimatedImageManager.h"
+#import "PINAnimatedImage.h"
+#import "PINAnimatedImageManager.h"
 #import "PINProgressiveImage.h"
 #import "PINRemoteImage.h"
 #import "PINRemoteImageBasicCache.h"

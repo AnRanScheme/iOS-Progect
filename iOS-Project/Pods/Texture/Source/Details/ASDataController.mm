@@ -540,7 +540,7 @@ typedef dispatch_block_t ASDataControllerCompletionBlock;
       ASMutableElementMap *mutableMap = [previousMap mutableCopy];
 
       // Step 1.1: Update the mutable copies to match the data source's state
-      [self _updateSectionsInMap:mutableMap changeSet:changeSet];
+      [self _updateSectionContextsInMap:mutableMap changeSet:changeSet];
       ASPrimitiveTraitCollection existingTraitCollection = [self.node primitiveTraitCollection];
       [self _updateElementsInMap:mutableMap changeSet:changeSet traitCollection:existingTraitCollection shouldFetchSizeRanges:(! canDelegate) previousMap:previousMap];
 
@@ -599,38 +599,43 @@ typedef dispatch_block_t ASDataControllerCompletionBlock;
 /**
  * Update sections based on the given change set.
  */
-- (void)_updateSectionsInMap:(ASMutableElementMap *)map changeSet:(_ASHierarchyChangeSet *)changeSet
+- (void)_updateSectionContextsInMap:(ASMutableElementMap *)map changeSet:(_ASHierarchyChangeSet *)changeSet
 {
   ASDisplayNodeAssertMainThread();
   
+  if (!_dataSourceFlags.contextForSection) {
+    return;
+  }
+  
   if (changeSet.includesReloadData) {
-    [map removeAllSections];
+    [map removeAllSectionContexts];
     
     NSUInteger sectionCount = [self itemCountsFromDataSource].size();
     NSIndexSet *sectionIndexes = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, sectionCount)];
-    [self _insertSectionsIntoMap:map indexes:sectionIndexes];
+    [self _insertSectionContextsIntoMap:map indexes:sectionIndexes];
     // Return immediately because reloadData can't be used in conjuntion with other updates.
     return;
   }
   
   for (_ASHierarchySectionChange *change in [changeSet sectionChangesOfType:_ASHierarchyChangeTypeDelete]) {
-    [map removeSectionsAtIndexes:change.indexSet];
+    [map removeSectionContextsAtIndexes:change.indexSet];
   }
   
   for (_ASHierarchySectionChange *change in [changeSet sectionChangesOfType:_ASHierarchyChangeTypeInsert]) {
-    [self _insertSectionsIntoMap:map indexes:change.indexSet];
+    [self _insertSectionContextsIntoMap:map indexes:change.indexSet];
   }
 }
 
-- (void)_insertSectionsIntoMap:(ASMutableElementMap *)map indexes:(NSIndexSet *)sectionIndexes
+- (void)_insertSectionContextsIntoMap:(ASMutableElementMap *)map indexes:(NSIndexSet *)sectionIndexes
 {
   ASDisplayNodeAssertMainThread();
-
+  
+  if (!_dataSourceFlags.contextForSection) {
+    return;
+  }
+  
   [sectionIndexes enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL * _Nonnull stop) {
-    id<ASSectionContext> context;
-    if (_dataSourceFlags.contextForSection) {
-      context = [_dataSource dataController:self contextForSection:idx];
-    }
+    id<ASSectionContext> context = [_dataSource dataController:self contextForSection:idx];
     ASSection *section = [[ASSection alloc] initWithSectionID:_nextSectionID context:context];
     [map insertSection:section atIndex:idx];
     _nextSectionID++;
@@ -754,7 +759,7 @@ typedef dispatch_block_t ASDataControllerCompletionBlock;
   }
 }
 
-- (void)relayoutAllNodesWithInvalidationBlock:(nullable void (^)())invalidationBlock
+- (void)relayoutAllNodes
 {
   ASDisplayNodeAssertMainThread();
   if (!_initialReloadDataHasBeenCalled) {
@@ -765,13 +770,6 @@ typedef dispatch_block_t ASDataControllerCompletionBlock;
   // i.e there might be some nodes that were measured using the old constrained size but haven't been added to _visibleMap
   LOG(@"Edit Command - relayoutRows");
   [self _scheduleBlockOnMainSerialQueue:^{
-    // Because -invalidateLayout doesn't trigger any operations by itself, and we answer queries from UICollectionView using layoutThatFits:,
-    // we invalidate the layout before we have updated all of the cells. Any cells that the collection needs the size of immediately will get
-    // -layoutThatFits: with a new constraint, on the main thread, and synchronously calculate them. Meanwhile, relayoutAllNodes will update
-    // the layout of any remaining nodes on background threads (and fast-return for any nodes that the UICV got to first).
-    if (invalidationBlock) {
-      invalidationBlock();
-    }
     [self _relayoutAllNodes];
   }];
 }
@@ -793,7 +791,7 @@ typedef dispatch_block_t ASDataControllerCompletionBlock;
       element.constrainedSize = newConstrainedSize;
 
       // Node may not be allocated yet (e.g node virtualization or same size optimization)
-      // Call context.nodeIfAllocated here to avoid premature node allocation and layout
+      // Call context.nodeIfAllocated here to avoid immature node allocation and layout
       ASCellNode *node = element.nodeIfAllocated;
       if (node) {
         [self _layoutNode:node withConstrainedSize:newConstrainedSize];

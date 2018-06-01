@@ -27,6 +27,7 @@
   dispatch_group_t _group;
   
   dispatch_block_t _completion;
+  dispatch_queue_t _completionQueue;
   
   BOOL _started;
   BOOL _canceled;
@@ -57,7 +58,7 @@
 
 - (void)dealloc
 {
-  pthread_mutex_destroy(&_lock);
+    pthread_mutex_destroy(&_lock);
 }
 
 + (instancetype)asyncOperationGroupWithQueue:(PINOperationQueue *)operationQueue
@@ -84,14 +85,22 @@
           dispatch_group_leave(_group);
         };
         
-        id <PINOperationReference> operationReference = [_operationQueue scheduleOperation:groupBlock withPriority:[_operationPriorities[idx] unsignedIntegerValue]];
+        id <PINOperationReference> operationReference = [_operationQueue addOperation:groupBlock withPriority:[_operationPriorities[idx] unsignedIntegerValue]];
         [_groupToOperationReferences setObject:operationReference forKey:_operationReferences[idx]];
       }
       
       if (_completion) {
-        dispatch_queue_t completionQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+        dispatch_queue_t completionQueue = _completionQueue ? _completionQueue : dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
         dispatch_group_notify(_group, completionQueue, ^{
-          [self runCompletionIfNeeded];
+          dispatch_block_t completion;
+          [self lock];
+            completion = _completion;
+            _completion = nil;
+          [self unlock];
+          
+          if (completion) {
+            completion();
+          }
         });
       }
       
@@ -158,20 +167,6 @@
 {
   [self start];
   dispatch_group_wait(_group, DISPATCH_TIME_FOREVER);
-  [self runCompletionIfNeeded];
-}
-
-- (void)runCompletionIfNeeded
-{
-  dispatch_block_t completion;
-  [self lock];
-    completion = _completion;
-    _completion = nil;
-  [self unlock];
-
-  if (completion) {
-    completion();
-  }
 }
 
 - (void)lock

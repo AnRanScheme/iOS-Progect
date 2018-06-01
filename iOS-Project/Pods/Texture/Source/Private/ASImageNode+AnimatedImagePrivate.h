@@ -26,7 +26,6 @@ extern NSString *const ASAnimatedImageDefaultRunLoopMode;
   BOOL _animatedImagePaused;
   NSString *_animatedImageRunLoopMode;
   CADisplayLink *_displayLink;
-  NSUInteger _lastSuccessfulFrameIndex;
   
   //accessed on main thread only
   CFTimeInterval _playHead;

@@ -1,0 +1,1220 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		01A3971F5FBFFFC21D359DEB /* Pods_MagicAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78E64E71E493589D027C5B8C /* Pods_MagicAppTests.framework */; };
+		3DCB489DC1894AAA5DFF6C46 /* Pods_MagicAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 035A4992AEBEE15EEE768A58 /* Pods_MagicAppUITests.framework */; };
+		3EEF454AB32BB4779E9505B3 /* Pods_MagicApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BAD7751C2A5C21565800200 /* Pods_MagicApp.framework */; };
+		FA3E6ADD2015B4AC008A8A33 /* TestTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3E6ADC2015B4AC008A8A33 /* TestTableView.swift */; };
+		FA4348BB20103C150005C259 /* MagiSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4348B920103C150005C259 /* MagiSearchViewController.swift */; };
+		FA4348BD20103EF90005C259 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4348BC20103EF90005C259 /* SideMenuViewController.swift */; };
+		FA4348BF20103F370005C259 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4348BE20103F370005C259 /* MenuItem.swift */; };
+		FA4348C1201044850005C259 /* CenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4348C0201044850005C259 /* CenterViewController.swift */; };
+		FA4348C3201045750005C259 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4348C2201045750005C259 /* MenuButton.swift */; };
+		FA4348C5201048A10005C259 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4348C4201048A10005C259 /* ContainerViewController.swift */; };
+		FA8BB8FD1FB2F47200757636 /* MagiBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8BB8FC1FB2F47200757636 /* MagiBaseViewController.swift */; };
+		FAA8A6AC1FAAB889005160CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA8A6AB1FAAB889005160CB /* AppDelegate.swift */; };
+		FAA8A6AE1FAAB889005160CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA8A6AD1FAAB889005160CB /* ViewController.swift */; };
+		FAA8A6B11FAAB889005160CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAA8A6AF1FAAB889005160CB /* Main.storyboard */; };
+		FAA8A6B61FAAB889005160CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAA8A6B51FAAB889005160CB /* Assets.xcassets */; };
+		FAA8A6B91FAAB889005160CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAA8A6B71FAAB889005160CB /* LaunchScreen.storyboard */; };
+		FAA8A6C41FAAB889005160CB /* MagicAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA8A6C31FAAB889005160CB /* MagicAppTests.swift */; };
+		FAA8A6CF1FAAB889005160CB /* MagicAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA8A6CE1FAAB889005160CB /* MagicAppUITests.swift */; };
+		FAB781971FAC677C00EF2E87 /* Ext+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB781911FAC677C00EF2E87 /* Ext+UIButton.swift */; };
+		FAB781981FAC677C00EF2E87 /* Ext+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB781921FAC677C00EF2E87 /* Ext+String.swift */; };
+		FAB781991FAC677C00EF2E87 /* Ext+UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB781931FAC677C00EF2E87 /* Ext+UIImageView.swift */; };
+		FAB7819A1FAC677C00EF2E87 /* Ext+UIBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB781941FAC677C00EF2E87 /* Ext+UIBarButtonItem.swift */; };
+		FAB7819B1FAC677C00EF2E87 /* Ext+UILable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB781951FAC677C00EF2E87 /* Ext+UILable.swift */; };
+		FAB7819C1FAC677C00EF2E87 /* Ext+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB781961FAC677C00EF2E87 /* Ext+UIView.swift */; };
+		FAB781AE1FAC69A700EF2E87 /* tapMenu.json in Resources */ = {isa = PBXBuildFile; fileRef = FAB781AD1FAC69A700EF2E87 /* tapMenu.json */; };
+		FAB781B01FAC6D2200EF2E87 /* MagiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB781AF1FAC6D2200EF2E87 /* MagiHelper.swift */; };
+		FAB781B21FAC6D4B00EF2E87 /* MagiRegexHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB781B11FAC6D4B00EF2E87 /* MagiRegexHelper.swift */; };
+		FAB781B41FAC6D7900EF2E87 /* MagiProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB781B31FAC6D7900EF2E87 /* MagiProgressHUD.swift */; };
+		FAB781B61FAC71C400EF2E87 /* MagiNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB781B51FAC71C400EF2E87 /* MagiNavigationController.swift */; };
+		FAB781B81FAC721A00EF2E87 /* MagiTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB781B71FAC721A00EF2E87 /* MagiTabBarController.swift */; };
+		FAC61E001FAC804E00B3A1A0 /* MagiHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC61DFF1FAC804E00B3A1A0 /* MagiHomeViewController.swift */; };
+		FAC61E021FAC805E00B3A1A0 /* MagiNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC61E011FAC805E00B3A1A0 /* MagiNewsViewController.swift */; };
+		FAC61E041FAC806F00B3A1A0 /* MagiFindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC61E031FAC806F00B3A1A0 /* MagiFindViewController.swift */; };
+		FAC61E061FAC808200B3A1A0 /* MagiCommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC61E051FAC808200B3A1A0 /* MagiCommunityViewController.swift */; };
+		FAC61E081FAC809200B3A1A0 /* MagiMineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC61E071FAC809200B3A1A0 /* MagiMineViewController.swift */; };
+		FAC9958520BFA29D00372385 /* MagiMotionInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAC9958420BFA29D00372385 /* MagiMotionInfo.plist */; };
+		FAC9958C20BFA6A900372385 /* MagiMotion+Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC9958B20BFA6A900372385 /* MagiMotion+Array.swift */; };
+		FAC9958E20BFA6D900372385 /* MagiMotion+CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC9958D20BFA6D900372385 /* MagiMotion+CALayer.swift */; };
+		FAC9959020BFC47100372385 /* MagiMotion+Obj-C.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC9958F20BFC47100372385 /* MagiMotion+Obj-C.swift */; };
+		FAC9959220BFC87100372385 /* MagiMotion+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC9959120BFC87100372385 /* MagiMotion+UIView.swift */; };
+		FAC9959420BFE55100372385 /* MagiMotionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC9959320BFE55100372385 /* MagiMotionAnimation.swift */; };
+		FAC9959620BFE5A000372385 /* MagiMotionAnimationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC9959520BFE5A000372385 /* MagiMotionAnimationState.swift */; };
+		FAC9959820BFE66700372385 /* MagiMotion+CAMediaTimingFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC9959720BFE66700372385 /* MagiMotion+CAMediaTimingFunction.swift */; };
+		FAC9959A20BFE72400372385 /* MagiMotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC9959920BFE72400372385 /* MagiMotion.swift */; };
+		FAC9959C20BFE7A500372385 /* MagiMotionAnimationFillMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC9959B20BFE7A500372385 /* MagiMotionAnimationFillMode.swift */; };
+		FAC9959E20BFF07200372385 /* MagiMotion+CG.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC9959D20BFF07200372385 /* MagiMotion+CG.swift */; };
+		FAD31ED8200EE64100E21B0F /* MagiCommunitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD31ED7200EE64100E21B0F /* MagiCommunitCell.swift */; };
+		FAD31EDA200F1F8600E21B0F /* MagiCommunitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD31ED9200F1F8600E21B0F /* MagiCommunitModel.swift */; };
+		FAD31EDC200F264600E21B0F /* MagiCommunitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD31EDB200F264600E21B0F /* MagiCommunitViewModel.swift */; };
+		FAE1534D1FB43A46004F98E2 /* MagiCycleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE1534C1FB43A46004F98E2 /* MagiCycleView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FAA8A6C01FAAB889005160CB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAA8A6A01FAAB889005160CB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FAA8A6A71FAAB889005160CB;
+			remoteInfo = MagicApp;
+		};
+		FAA8A6CB1FAAB889005160CB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAA8A6A01FAAB889005160CB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FAA8A6A71FAAB889005160CB;
+			remoteInfo = MagicApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		01FAB80F44735612401BED9F /* Pods-MagicAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MagicAppTests/Pods-MagicAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		035A4992AEBEE15EEE768A58 /* Pods_MagicAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MagicAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BAD7751C2A5C21565800200 /* Pods_MagicApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MagicApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		78E64E71E493589D027C5B8C /* Pods_MagicAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MagicAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9EBB6D3B98AD923A2CFA5AD /* Pods-MagicApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MagicApp/Pods-MagicApp.debug.xcconfig"; sourceTree = "<group>"; };
+		CE0C84111A52BCA48FA91487 /* Pods-MagicAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MagicAppUITests/Pods-MagicAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		D33D4177EF98B679CCE6D001 /* Pods-MagicApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-MagicApp/Pods-MagicApp.release.xcconfig"; sourceTree = "<group>"; };
+		DC114AF57A1C717EECBFFCBE /* Pods-MagicAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MagicAppUITests/Pods-MagicAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		F5AD06206C729E14B113D4BD /* Pods-MagicAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MagicAppTests/Pods-MagicAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FA3E6ADC2015B4AC008A8A33 /* TestTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTableView.swift; sourceTree = "<group>"; };
+		FA4348B920103C150005C259 /* MagiSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagiSearchViewController.swift; sourceTree = "<group>"; };
+		FA4348BC20103EF90005C259 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		FA4348BE20103F370005C259 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		FA4348C0201044850005C259 /* CenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterViewController.swift; sourceTree = "<group>"; };
+		FA4348C2201045750005C259 /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
+		FA4348C4201048A10005C259 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		FA8BB8FC1FB2F47200757636 /* MagiBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagiBaseViewController.swift; sourceTree = "<group>"; };
+		FAA8A6A81FAAB889005160CB /* MagicApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagicApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAA8A6AB1FAAB889005160CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FAA8A6AD1FAAB889005160CB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FAA8A6B01FAAB889005160CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FAA8A6B51FAAB889005160CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FAA8A6B81FAAB889005160CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FAA8A6BA1FAAB889005160CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAA8A6BF1FAAB889005160CB /* MagicAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MagicAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAA8A6C31FAAB889005160CB /* MagicAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicAppTests.swift; sourceTree = "<group>"; };
+		FAA8A6C51FAAB889005160CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAA8A6CA1FAAB889005160CB /* MagicAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MagicAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAA8A6CE1FAAB889005160CB /* MagicAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicAppUITests.swift; sourceTree = "<group>"; };
+		FAA8A6D01FAAB889005160CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAB781911FAC677C00EF2E87 /* Ext+UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ext+UIButton.swift"; sourceTree = "<group>"; };
+		FAB781921FAC677C00EF2E87 /* Ext+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ext+String.swift"; sourceTree = "<group>"; };
+		FAB781931FAC677C00EF2E87 /* Ext+UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ext+UIImageView.swift"; sourceTree = "<group>"; };
+		FAB781941FAC677C00EF2E87 /* Ext+UIBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ext+UIBarButtonItem.swift"; sourceTree = "<group>"; };
+		FAB781951FAC677C00EF2E87 /* Ext+UILable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ext+UILable.swift"; sourceTree = "<group>"; };
+		FAB781961FAC677C00EF2E87 /* Ext+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ext+UIView.swift"; sourceTree = "<group>"; };
+		FAB781AD1FAC69A700EF2E87 /* tapMenu.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tapMenu.json; sourceTree = "<group>"; };
+		FAB781AF1FAC6D2200EF2E87 /* MagiHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagiHelper.swift; sourceTree = "<group>"; };
+		FAB781B11FAC6D4B00EF2E87 /* MagiRegexHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagiRegexHelper.swift; sourceTree = "<group>"; };
+		FAB781B31FAC6D7900EF2E87 /* MagiProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagiProgressHUD.swift; sourceTree = "<group>"; };
+		FAB781B51FAC71C400EF2E87 /* MagiNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagiNavigationController.swift; sourceTree = "<group>"; };
+		FAB781B71FAC721A00EF2E87 /* MagiTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagiTabBarController.swift; sourceTree = "<group>"; };
+		FAC35F80200CB0A900883A6B /* MagiApp_pch.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MagiApp_pch.pch; sourceTree = "<group>"; };
+		FAC61DFF1FAC804E00B3A1A0 /* MagiHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagiHomeViewController.swift; sourceTree = "<group>"; };
+		FAC61E011FAC805E00B3A1A0 /* MagiNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagiNewsViewController.swift; sourceTree = "<group>"; };
+		FAC61E031FAC806F00B3A1A0 /* MagiFindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagiFindViewController.swift; sourceTree = "<group>"; };
+		FAC61E051FAC808200B3A1A0 /* MagiCommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagiCommunityViewController.swift; sourceTree = "<group>"; };
+		FAC61E071FAC809200B3A1A0 /* MagiMineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagiMineViewController.swift; sourceTree = "<group>"; };
+		FAC9958420BFA29D00372385 /* MagiMotionInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = MagiMotionInfo.plist; sourceTree = "<group>"; };
+		FAC9958620BFA53000372385 /* MagiMotion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MagiMotion.h; sourceTree = "<group>"; };
+		FAC9958B20BFA6A900372385 /* MagiMotion+Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MagiMotion+Array.swift"; sourceTree = "<group>"; };
+		FAC9958D20BFA6D900372385 /* MagiMotion+CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MagiMotion+CALayer.swift"; sourceTree = "<group>"; };
+		FAC9958F20BFC47100372385 /* MagiMotion+Obj-C.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MagiMotion+Obj-C.swift"; sourceTree = "<group>"; };
+		FAC9959120BFC87100372385 /* MagiMotion+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MagiMotion+UIView.swift"; sourceTree = "<group>"; };
+		FAC9959320BFE55100372385 /* MagiMotionAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagiMotionAnimation.swift; sourceTree = "<group>"; };
+		FAC9959520BFE5A000372385 /* MagiMotionAnimationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagiMotionAnimationState.swift; sourceTree = "<group>"; };
+		FAC9959720BFE66700372385 /* MagiMotion+CAMediaTimingFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MagiMotion+CAMediaTimingFunction.swift"; sourceTree = "<group>"; };
+		FAC9959920BFE72400372385 /* MagiMotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagiMotion.swift; sourceTree = "<group>"; };
+		FAC9959B20BFE7A500372385 /* MagiMotionAnimationFillMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagiMotionAnimationFillMode.swift; sourceTree = "<group>"; };
+		FAC9959D20BFF07200372385 /* MagiMotion+CG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MagiMotion+CG.swift"; sourceTree = "<group>"; };
+		FAD31ED7200EE64100E21B0F /* MagiCommunitCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagiCommunitCell.swift; sourceTree = "<group>"; };
+		FAD31ED9200F1F8600E21B0F /* MagiCommunitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagiCommunitModel.swift; sourceTree = "<group>"; };
+		FAD31EDB200F264600E21B0F /* MagiCommunitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagiCommunitViewModel.swift; sourceTree = "<group>"; };
+		FAE1534C1FB43A46004F98E2 /* MagiCycleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagiCycleView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FAA8A6A51FAAB889005160CB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3EEF454AB32BB4779E9505B3 /* Pods_MagicApp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAA8A6BC1FAAB889005160CB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01A3971F5FBFFFC21D359DEB /* Pods_MagicAppTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAA8A6C71FAAB889005160CB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DCB489DC1894AAA5DFF6C46 /* Pods_MagicAppUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		135E8A2A3C032513027368DC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3BAD7751C2A5C21565800200 /* Pods_MagicApp.framework */,
+				78E64E71E493589D027C5B8C /* Pods_MagicAppTests.framework */,
+				035A4992AEBEE15EEE768A58 /* Pods_MagicAppUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F551CF7848970B097A3F613A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A9EBB6D3B98AD923A2CFA5AD /* Pods-MagicApp.debug.xcconfig */,
+				D33D4177EF98B679CCE6D001 /* Pods-MagicApp.release.xcconfig */,
+				F5AD06206C729E14B113D4BD /* Pods-MagicAppTests.debug.xcconfig */,
+				01FAB80F44735612401BED9F /* Pods-MagicAppTests.release.xcconfig */,
+				DC114AF57A1C717EECBFFCBE /* Pods-MagicAppUITests.debug.xcconfig */,
+				CE0C84111A52BCA48FA91487 /* Pods-MagicAppUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FA3702D51FD0F47F00FE5FB1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FA3702D61FD0F49F00FE5FB1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FA4348BA20103C150005C259 /* Cell */,
+				FA4348B820103C150005C259 /* Controller */,
+				FA4348B720103C150005C259 /* View */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FA3702D71FD0F4A600FE5FB1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FA3702D81FD0F7BE00FE5FB1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FA3702D91FD0F7BE00FE5FB1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FA3702DA1FD0F7BE00FE5FB1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FA3702DB1FD0F7DD00FE5FB1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FAD31EDB200F264600E21B0F /* MagiCommunitViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FA3702DC1FD0F7DD00FE5FB1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FAD31ED9200F1F8600E21B0F /* MagiCommunitModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FA3702DD1FD0F7DE00FE5FB1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FAD31ED7200EE64100E21B0F /* MagiCommunitCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FA3702DE1FD0F7E900FE5FB1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FA3702DF1FD0F7E900FE5FB1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FA3702E01FD0F7E900FE5FB1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FA3702E11FD0F7F500FE5FB1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FA3702E21FD0F7F600FE5FB1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FA3702E31FD0F7F600FE5FB1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FA4348B720103C150005C259 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FA4348C2201045750005C259 /* MenuButton.swift */,
+				FA3E6ADC2015B4AC008A8A33 /* TestTableView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FA4348B820103C150005C259 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FA4348B920103C150005C259 /* MagiSearchViewController.swift */,
+				FA4348BC20103EF90005C259 /* SideMenuViewController.swift */,
+				FA4348C0201044850005C259 /* CenterViewController.swift */,
+				FA4348C4201048A10005C259 /* ContainerViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FA4348BA20103C150005C259 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FA4348BE20103F370005C259 /* MenuItem.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		FA8BB8FB1FB2F45A00757636 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				FA8BB8FC1FB2F47200757636 /* MagiBaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		FAA8A69F1FAAB889005160CB = {
+			isa = PBXGroup;
+			children = (
+				FAA8A6AA1FAAB889005160CB /* MagicApp */,
+				FAA8A6C21FAAB889005160CB /* MagicAppTests */,
+				FAA8A6CD1FAAB889005160CB /* MagicAppUITests */,
+				FAA8A6A91FAAB889005160CB /* Products */,
+				F551CF7848970B097A3F613A /* Pods */,
+				135E8A2A3C032513027368DC /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		FAA8A6A91FAAB889005160CB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FAA8A6A81FAAB889005160CB /* MagicApp.app */,
+				FAA8A6BF1FAAB889005160CB /* MagicAppTests.xctest */,
+				FAA8A6CA1FAAB889005160CB /* MagicAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FAA8A6AA1FAAB889005160CB /* MagicApp */ = {
+			isa = PBXGroup;
+			children = (
+				FAB781871FAC617800EF2E87 /* Modules */,
+				FAB781861FAC609C00EF2E87 /* Service */,
+				FAB781881FAC618600EF2E87 /* Tools */,
+				FAB781891FAC61AB00EF2E87 /* BaseFramework */,
+				FAB781A71FAC684200EF2E87 /* Resources */,
+				FAA8A6AB1FAAB889005160CB /* AppDelegate.swift */,
+				FAA8A6BA1FAAB889005160CB /* Info.plist */,
+			);
+			path = MagicApp;
+			sourceTree = "<group>";
+		};
+		FAA8A6C21FAAB889005160CB /* MagicAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				FAA8A6C31FAAB889005160CB /* MagicAppTests.swift */,
+				FAA8A6C51FAAB889005160CB /* Info.plist */,
+			);
+			path = MagicAppTests;
+			sourceTree = "<group>";
+		};
+		FAA8A6CD1FAAB889005160CB /* MagicAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FAA8A6CE1FAAB889005160CB /* MagicAppUITests.swift */,
+				FAA8A6D01FAAB889005160CB /* Info.plist */,
+			);
+			path = MagicAppUITests;
+			sourceTree = "<group>";
+		};
+		FAB781861FAC609C00EF2E87 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				FAB781AF1FAC6D2200EF2E87 /* MagiHelper.swift */,
+				FAB781B11FAC6D4B00EF2E87 /* MagiRegexHelper.swift */,
+				FAB781B31FAC6D7900EF2E87 /* MagiProgressHUD.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		FAB781871FAC617800EF2E87 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				FAB7818A1FAC622600EF2E87 /* Main */,
+				FAB7818B1FAC623700EF2E87 /* Home(首页) */,
+				FAB7818F1FAC640300EF2E87 /* News(资讯) */,
+				FAB7818D1FAC625900EF2E87 /* Find(发现) */,
+				FAB7818E1FAC637600EF2E87 /* Community(社区) */,
+				FAB7818C1FAC623E00EF2E87 /* Mine(我的) */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		FAB781881FAC618600EF2E87 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				FAC9958320BFA08600372385 /* MagiMotion */,
+				FAE1534B1FB43A1B004F98E2 /* CycleScrollView */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		FAB781891FAC61AB00EF2E87 /* BaseFramework */ = {
+			isa = PBXGroup;
+			children = (
+				FA8BB8FB1FB2F45A00757636 /* Base */,
+				FAB781901FAC66FF00EF2E87 /* Category */,
+			);
+			path = BaseFramework;
+			sourceTree = "<group>";
+		};
+		FAB7818A1FAC622600EF2E87 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				FAB781B51FAC71C400EF2E87 /* MagiNavigationController.swift */,
+				FAB781B71FAC721A00EF2E87 /* MagiTabBarController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		FAB7818B1FAC623700EF2E87 /* Home(首页) */ = {
+			isa = PBXGroup;
+			children = (
+				FAC61DFF1FAC804E00B3A1A0 /* MagiHomeViewController.swift */,
+				FA3702D71FD0F4A600FE5FB1 /* ViewModel */,
+				FA3702D61FD0F49F00FE5FB1 /* View */,
+				FA3702D51FD0F47F00FE5FB1 /* Model */,
+			);
+			path = "Home(首页)";
+			sourceTree = "<group>";
+		};
+		FAB7818C1FAC623E00EF2E87 /* Mine(我的) */ = {
+			isa = PBXGroup;
+			children = (
+				FAC61E071FAC809200B3A1A0 /* MagiMineViewController.swift */,
+				FA3702E11FD0F7F500FE5FB1 /* Model */,
+				FA3702E21FD0F7F600FE5FB1 /* View */,
+				FA3702E31FD0F7F600FE5FB1 /* ViewModel */,
+			);
+			path = "Mine(我的)";
+			sourceTree = "<group>";
+		};
+		FAB7818D1FAC625900EF2E87 /* Find(发现) */ = {
+			isa = PBXGroup;
+			children = (
+				FAC61E031FAC806F00B3A1A0 /* MagiFindViewController.swift */,
+				FA3702DE1FD0F7E900FE5FB1 /* Model */,
+				FA3702E01FD0F7E900FE5FB1 /* View */,
+				FA3702DF1FD0F7E900FE5FB1 /* ViewModel */,
+			);
+			path = "Find(发现)";
+			sourceTree = "<group>";
+		};
+		FAB7818E1FAC637600EF2E87 /* Community(社区) */ = {
+			isa = PBXGroup;
+			children = (
+				FAC61E051FAC808200B3A1A0 /* MagiCommunityViewController.swift */,
+				FA3702DC1FD0F7DD00FE5FB1 /* Model */,
+				FA3702DD1FD0F7DE00FE5FB1 /* View */,
+				FA3702DB1FD0F7DD00FE5FB1 /* ViewModel */,
+			);
+			path = "Community(社区)";
+			sourceTree = "<group>";
+		};
+		FAB7818F1FAC640300EF2E87 /* News(资讯) */ = {
+			isa = PBXGroup;
+			children = (
+				FAC61E011FAC805E00B3A1A0 /* MagiNewsViewController.swift */,
+				FA3702D81FD0F7BE00FE5FB1 /* Model */,
+				FA3702D91FD0F7BE00FE5FB1 /* View */,
+				FA3702DA1FD0F7BE00FE5FB1 /* ViewModel */,
+			);
+			path = "News(资讯)";
+			sourceTree = "<group>";
+		};
+		FAB781901FAC66FF00EF2E87 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				FAB781921FAC677C00EF2E87 /* Ext+String.swift */,
+				FAB781941FAC677C00EF2E87 /* Ext+UIBarButtonItem.swift */,
+				FAB781911FAC677C00EF2E87 /* Ext+UIButton.swift */,
+				FAB781931FAC677C00EF2E87 /* Ext+UIImageView.swift */,
+				FAB781951FAC677C00EF2E87 /* Ext+UILable.swift */,
+				FAB781961FAC677C00EF2E87 /* Ext+UIView.swift */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		FAB781A71FAC684200EF2E87 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FAA8A6AD1FAAB889005160CB /* ViewController.swift */,
+				FAA8A6AF1FAAB889005160CB /* Main.storyboard */,
+				FAA8A6B71FAAB889005160CB /* LaunchScreen.storyboard */,
+				FAA8A6B51FAAB889005160CB /* Assets.xcassets */,
+				FAB781AD1FAC69A700EF2E87 /* tapMenu.json */,
+				FAC35F80200CB0A900883A6B /* MagiApp_pch.pch */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		FAC9958320BFA08600372385 /* MagiMotion */ = {
+			isa = PBXGroup;
+			children = (
+				FAC9958420BFA29D00372385 /* MagiMotionInfo.plist */,
+				FAC9958620BFA53000372385 /* MagiMotion.h */,
+				FAC9959320BFE55100372385 /* MagiMotionAnimation.swift */,
+				FAC9959920BFE72400372385 /* MagiMotion.swift */,
+				FAC9959520BFE5A000372385 /* MagiMotionAnimationState.swift */,
+				FAC9958820BFA5FE00372385 /* Animator */,
+				FAC9958720BFA5FE00372385 /* Extensions */,
+				FAC9958A20BFA5FE00372385 /* Preprocessors */,
+				FAC9958920BFA5FE00372385 /* Transition */,
+			);
+			path = MagiMotion;
+			sourceTree = "<group>";
+		};
+		FAC9958720BFA5FE00372385 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FAC9958B20BFA6A900372385 /* MagiMotion+Array.swift */,
+				FAC9958D20BFA6D900372385 /* MagiMotion+CALayer.swift */,
+				FAC9958F20BFC47100372385 /* MagiMotion+Obj-C.swift */,
+				FAC9959120BFC87100372385 /* MagiMotion+UIView.swift */,
+				FAC9959720BFE66700372385 /* MagiMotion+CAMediaTimingFunction.swift */,
+				FAC9959B20BFE7A500372385 /* MagiMotionAnimationFillMode.swift */,
+				FAC9959D20BFF07200372385 /* MagiMotion+CG.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FAC9958820BFA5FE00372385 /* Animator */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Animator;
+			sourceTree = "<group>";
+		};
+		FAC9958920BFA5FE00372385 /* Transition */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Transition;
+			sourceTree = "<group>";
+		};
+		FAC9958A20BFA5FE00372385 /* Preprocessors */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Preprocessors;
+			sourceTree = "<group>";
+		};
+		FAE1534B1FB43A1B004F98E2 /* CycleScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				FAE1534C1FB43A46004F98E2 /* MagiCycleView.swift */,
+			);
+			path = CycleScrollView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FAA8A6A71FAAB889005160CB /* MagicApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAA8A6D31FAAB889005160CB /* Build configuration list for PBXNativeTarget "MagicApp" */;
+			buildPhases = (
+				D0EA9F06422FBC194A6B3EAF /* [CP] Check Pods Manifest.lock */,
+				FAA8A6A41FAAB889005160CB /* Sources */,
+				FAA8A6A51FAAB889005160CB /* Frameworks */,
+				FAA8A6A61FAAB889005160CB /* Resources */,
+				4DDCA4B10A34444B921C4267 /* [CP] Embed Pods Frameworks */,
+				E9909C45FB07110C470B02E3 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MagicApp;
+			productName = MagicApp;
+			productReference = FAA8A6A81FAAB889005160CB /* MagicApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FAA8A6BE1FAAB889005160CB /* MagicAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAA8A6D61FAAB889005160CB /* Build configuration list for PBXNativeTarget "MagicAppTests" */;
+			buildPhases = (
+				5226E38797C11D468FB2DD38 /* [CP] Check Pods Manifest.lock */,
+				FAA8A6BB1FAAB889005160CB /* Sources */,
+				FAA8A6BC1FAAB889005160CB /* Frameworks */,
+				FAA8A6BD1FAAB889005160CB /* Resources */,
+				73792051B178C5F011354452 /* [CP] Embed Pods Frameworks */,
+				1E6641B5C62E47DA2E3D59C0 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FAA8A6C11FAAB889005160CB /* PBXTargetDependency */,
+			);
+			name = MagicAppTests;
+			productName = MagicAppTests;
+			productReference = FAA8A6BF1FAAB889005160CB /* MagicAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FAA8A6C91FAAB889005160CB /* MagicAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAA8A6D91FAAB889005160CB /* Build configuration list for PBXNativeTarget "MagicAppUITests" */;
+			buildPhases = (
+				4B54C3D41ACCE92D5D6AC6EA /* [CP] Check Pods Manifest.lock */,
+				FAA8A6C61FAAB889005160CB /* Sources */,
+				FAA8A6C71FAAB889005160CB /* Frameworks */,
+				FAA8A6C81FAAB889005160CB /* Resources */,
+				B7F6F48AD95B61715434150A /* [CP] Embed Pods Frameworks */,
+				E82AA9E3812549E12E72AD6A /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FAA8A6CC1FAAB889005160CB /* PBXTargetDependency */,
+			);
+			name = MagicAppUITests;
+			productName = MagicAppUITests;
+			productReference = FAA8A6CA1FAAB889005160CB /* MagicAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FAA8A6A01FAAB889005160CB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = MacBook;
+				TargetAttributes = {
+					FAA8A6A71FAAB889005160CB = {
+						CreatedOnToolsVersion = 9.0.1;
+						ProvisioningStyle = Automatic;
+					};
+					FAA8A6BE1FAAB889005160CB = {
+						CreatedOnToolsVersion = 9.0.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = FAA8A6A71FAAB889005160CB;
+					};
+					FAA8A6C91FAAB889005160CB = {
+						CreatedOnToolsVersion = 9.0.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = FAA8A6A71FAAB889005160CB;
+					};
+				};
+			};
+			buildConfigurationList = FAA8A6A31FAAB889005160CB /* Build configuration list for PBXProject "MagicApp" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FAA8A69F1FAAB889005160CB;
+			productRefGroup = FAA8A6A91FAAB889005160CB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FAA8A6A71FAAB889005160CB /* MagicApp */,
+				FAA8A6BE1FAAB889005160CB /* MagicAppTests */,
+				FAA8A6C91FAAB889005160CB /* MagicAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FAA8A6A61FAAB889005160CB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAA8A6B91FAAB889005160CB /* LaunchScreen.storyboard in Resources */,
+				FAA8A6B61FAAB889005160CB /* Assets.xcassets in Resources */,
+				FAC9958520BFA29D00372385 /* MagiMotionInfo.plist in Resources */,
+				FAB781AE1FAC69A700EF2E87 /* tapMenu.json in Resources */,
+				FAA8A6B11FAAB889005160CB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAA8A6BD1FAAB889005160CB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAA8A6C81FAAB889005160CB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1E6641B5C62E47DA2E3D59C0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MagicAppTests/Pods-MagicAppTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4B54C3D41ACCE92D5D6AC6EA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4DDCA4B10A34444B921C4267 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MagicApp/Pods-MagicApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5226E38797C11D468FB2DD38 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		73792051B178C5F011354452 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MagicAppTests/Pods-MagicAppTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B7F6F48AD95B61715434150A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MagicAppUITests/Pods-MagicAppUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D0EA9F06422FBC194A6B3EAF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E82AA9E3812549E12E72AD6A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MagicAppUITests/Pods-MagicAppUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E9909C45FB07110C470B02E3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MagicApp/Pods-MagicApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FAA8A6A41FAAB889005160CB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAB7819C1FAC677C00EF2E87 /* Ext+UIView.swift in Sources */,
+				FAC61E021FAC805E00B3A1A0 /* MagiNewsViewController.swift in Sources */,
+				FAC9959C20BFE7A500372385 /* MagiMotionAnimationFillMode.swift in Sources */,
+				FAB7819A1FAC677C00EF2E87 /* Ext+UIBarButtonItem.swift in Sources */,
+				FA4348C1201044850005C259 /* CenterViewController.swift in Sources */,
+				FAC61E081FAC809200B3A1A0 /* MagiMineViewController.swift in Sources */,
+				FAC9959820BFE66700372385 /* MagiMotion+CAMediaTimingFunction.swift in Sources */,
+				FAC9959E20BFF07200372385 /* MagiMotion+CG.swift in Sources */,
+				FAC9958C20BFA6A900372385 /* MagiMotion+Array.swift in Sources */,
+				FA3E6ADD2015B4AC008A8A33 /* TestTableView.swift in Sources */,
+				FAB781B81FAC721A00EF2E87 /* MagiTabBarController.swift in Sources */,
+				FAB781B61FAC71C400EF2E87 /* MagiNavigationController.swift in Sources */,
+				FAB781991FAC677C00EF2E87 /* Ext+UIImageView.swift in Sources */,
+				FAA8A6AE1FAAB889005160CB /* ViewController.swift in Sources */,
+				FAE1534D1FB43A46004F98E2 /* MagiCycleView.swift in Sources */,
+				FAD31ED8200EE64100E21B0F /* MagiCommunitCell.swift in Sources */,
+				FAA8A6AC1FAAB889005160CB /* AppDelegate.swift in Sources */,
+				FAB781B21FAC6D4B00EF2E87 /* MagiRegexHelper.swift in Sources */,
+				FAD31EDC200F264600E21B0F /* MagiCommunitViewModel.swift in Sources */,
+				FA4348BD20103EF90005C259 /* SideMenuViewController.swift in Sources */,
+				FA8BB8FD1FB2F47200757636 /* MagiBaseViewController.swift in Sources */,
+				FA4348C3201045750005C259 /* MenuButton.swift in Sources */,
+				FAC9958E20BFA6D900372385 /* MagiMotion+CALayer.swift in Sources */,
+				FAB781B01FAC6D2200EF2E87 /* MagiHelper.swift in Sources */,
+				FAC61E001FAC804E00B3A1A0 /* MagiHomeViewController.swift in Sources */,
+				FAC9959620BFE5A000372385 /* MagiMotionAnimationState.swift in Sources */,
+				FAC61E061FAC808200B3A1A0 /* MagiCommunityViewController.swift in Sources */,
+				FAC61E041FAC806F00B3A1A0 /* MagiFindViewController.swift in Sources */,
+				FA4348BF20103F370005C259 /* MenuItem.swift in Sources */,
+				FA4348C5201048A10005C259 /* ContainerViewController.swift in Sources */,
+				FAB781981FAC677C00EF2E87 /* Ext+String.swift in Sources */,
+				FAC9959020BFC47100372385 /* MagiMotion+Obj-C.swift in Sources */,
+				FAB7819B1FAC677C00EF2E87 /* Ext+UILable.swift in Sources */,
+				FAC9959420BFE55100372385 /* MagiMotionAnimation.swift in Sources */,
+				FA4348BB20103C150005C259 /* MagiSearchViewController.swift in Sources */,
+				FAC9959220BFC87100372385 /* MagiMotion+UIView.swift in Sources */,
+				FAB781B41FAC6D7900EF2E87 /* MagiProgressHUD.swift in Sources */,
+				FAC9959A20BFE72400372385 /* MagiMotion.swift in Sources */,
+				FAB781971FAC677C00EF2E87 /* Ext+UIButton.swift in Sources */,
+				FAD31EDA200F1F8600E21B0F /* MagiCommunitModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAA8A6BB1FAAB889005160CB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAA8A6C41FAAB889005160CB /* MagicAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAA8A6C61FAAB889005160CB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAA8A6CF1FAAB889005160CB /* MagicAppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FAA8A6C11FAAB889005160CB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FAA8A6A71FAAB889005160CB /* MagicApp */;
+			targetProxy = FAA8A6C01FAAB889005160CB /* PBXContainerItemProxy */;
+		};
+		FAA8A6CC1FAAB889005160CB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FAA8A6A71FAAB889005160CB /* MagicApp */;
+			targetProxy = FAA8A6CB1FAAB889005160CB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FAA8A6AF1FAAB889005160CB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FAA8A6B01FAAB889005160CB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FAA8A6B71FAAB889005160CB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FAA8A6B81FAAB889005160CB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FAA8A6D11FAAB889005160CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		FAA8A6D21FAAB889005160CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FAA8A6D41FAAB889005160CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A9EBB6D3B98AD923A2CFA5AD /* Pods-MagicApp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TDBLA72SEX;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/MagicApp/MagicApp_pch.pch";
+				INFOPLIST_FILE = MagicApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cn.anran.MagicApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FAA8A6D51FAAB889005160CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D33D4177EF98B679CCE6D001 /* Pods-MagicApp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TDBLA72SEX;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/MagicApp/MagicApp_pch.pch";
+				INFOPLIST_FILE = MagicApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cn.anran.MagicApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		FAA8A6D71FAAB889005160CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F5AD06206C729E14B113D4BD /* Pods-MagicAppTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DP4MZ2Q35R;
+				INFOPLIST_FILE = MagicAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cn.anran.MagicAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MagicApp.app/MagicApp";
+			};
+			name = Debug;
+		};
+		FAA8A6D81FAAB889005160CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 01FAB80F44735612401BED9F /* Pods-MagicAppTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DP4MZ2Q35R;
+				INFOPLIST_FILE = MagicAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cn.anran.MagicAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MagicApp.app/MagicApp";
+			};
+			name = Release;
+		};
+		FAA8A6DA1FAAB889005160CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DC114AF57A1C717EECBFFCBE /* Pods-MagicAppUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DP4MZ2Q35R;
+				INFOPLIST_FILE = MagicAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cn.anran.MagicAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MagicApp;
+			};
+			name = Debug;
+		};
+		FAA8A6DB1FAAB889005160CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE0C84111A52BCA48FA91487 /* Pods-MagicAppUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DP4MZ2Q35R;
+				INFOPLIST_FILE = MagicAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cn.anran.MagicAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MagicApp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FAA8A6A31FAAB889005160CB /* Build configuration list for PBXProject "MagicApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAA8A6D11FAAB889005160CB /* Debug */,
+				FAA8A6D21FAAB889005160CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAA8A6D31FAAB889005160CB /* Build configuration list for PBXNativeTarget "MagicApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAA8A6D41FAAB889005160CB /* Debug */,
+				FAA8A6D51FAAB889005160CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAA8A6D61FAAB889005160CB /* Build configuration list for PBXNativeTarget "MagicAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAA8A6D71FAAB889005160CB /* Debug */,
+				FAA8A6D81FAAB889005160CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAA8A6D91FAAB889005160CB /* Build configuration list for PBXNativeTarget "MagicAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAA8A6DA1FAAB889005160CB /* Debug */,
+				FAA8A6DB1FAAB889005160CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FAA8A6A01FAAB889005160CB /* Project object */;
+}

@@ -86,7 +86,7 @@ extension Indicator {
 
 // MARK: - ActivityIndicator
 // Displays a NSProgressIndicator / UIActivityIndicatorView
-final class ActivityIndicator: Indicator {
+class ActivityIndicator: Indicator {
 
     #if os(macOS)
     private let activityIndicatorView: NSProgressIndicator
@@ -143,7 +143,7 @@ final class ActivityIndicator: Indicator {
 
 // MARK: - ImageIndicator
 // Displays an ImageView. Supports gif
-final class ImageIndicator: Indicator {
+class ImageIndicator: Indicator {
     private let animatedImageIndicatorView: ImageView
 
     var view: IndicatorView {

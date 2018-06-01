@@ -56,7 +56,6 @@
     unsigned int delegateDidFailWithError:1;
     unsigned int delegateDidFinishDecoding:1;
     unsigned int delegateDidLoadImage:1;
-    unsigned int delegateDidLoadImageWithInfo:1;
   } _delegateFlags;
 
   
@@ -306,7 +305,6 @@
   _delegateFlags.delegateDidFailWithError = [delegate respondsToSelector:@selector(imageNode:didFailWithError:)];
   _delegateFlags.delegateDidFinishDecoding = [delegate respondsToSelector:@selector(imageNodeDidFinishDecoding:)];
   _delegateFlags.delegateDidLoadImage = [delegate respondsToSelector:@selector(imageNode:didLoadImage:)];
-  _delegateFlags.delegateDidLoadImageWithInfo = [delegate respondsToSelector:@selector(imageNode:didLoadImage:info:)];
 }
 
 - (id<ASNetworkImageNodeDelegate>)delegate
@@ -355,18 +353,8 @@
         if (result) {
           [self _locked_setCurrentImageQuality:1.0];
           [self _locked__setImage:result];
+          
           _imageLoaded = YES;
-
-          // Call out to the delegate.
-          if (_delegateFlags.delegateDidLoadImageWithInfo) {
-            ASDN::MutexUnlocker l(__instanceLock__);
-            ASNetworkImageNodeDidLoadInfo info = {};
-            info.imageSource = ASNetworkImageSourceSynchronousCache;
-            [_delegate imageNode:self didLoadImage:result info:info];
-          } else if (_delegateFlags.delegateDidLoadImage) {
-            ASDN::MutexUnlocker l(__instanceLock__);
-            [_delegate imageNode:self didLoadImage:result];
-          }
           break;
         }
       }
@@ -700,19 +688,14 @@
 
         [self _locked_setCurrentImageQuality:1.0];
 
-        if (_delegateFlags.delegateDidLoadImageWithInfo) {
-          ASDN::MutexUnlocker u(__instanceLock__);
-          ASNetworkImageNodeDidLoadInfo info = {};
-          info.imageSource = ASNetworkImageSourceFileURL;
-          [delegate imageNode:self didLoadImage:self.image info:info];
-        } else if (_delegateFlags.delegateDidLoadImage) {
+        if (_delegateFlags.delegateDidLoadImage) {
           ASDN::MutexUnlocker u(__instanceLock__);
           [delegate imageNode:self didLoadImage:self.image];
         }
       });
     } else {
       __weak __typeof__(self) weakSelf = self;
-      auto finished = ^(id <ASImageContainerProtocol>imageContainer, NSError *error, id downloadIdentifier, ASNetworkImageSource imageSource) {
+      auto finished = ^(id <ASImageContainerProtocol>imageContainer, NSError *error, id downloadIdentifier) {
        
         __typeof__(self) strongSelf = weakSelf;
         if (strongSelf == nil) {
@@ -726,14 +709,7 @@
         
         //Getting a result back for a different download identifier, download must not have been successfully canceled
         if (ASObjectIsEqual(strongSelf->_downloadIdentifier, downloadIdentifier) == NO && downloadIdentifier != nil) {
-          return;
-        }
-          
-        //No longer in preload range, no point in setting the results (they won't be cleared in exit preload range)
-        if (ASInterfaceStateIncludesPreload(self->_interfaceState) == NO) {
-          self->_downloadIdentifier = nil;
-          self->_cacheUUID = nil;
-          return;
+            return;
         }
 
         if (imageContainer != nil) {
@@ -751,12 +727,7 @@
         strongSelf->_cacheUUID = nil;
 
         if (imageContainer != nil) {
-          if (strongSelf->_delegateFlags.delegateDidLoadImageWithInfo) {
-            ASDN::MutexUnlocker u(strongSelf->__instanceLock__);
-            ASNetworkImageNodeDidLoadInfo info = {};
-            info.imageSource = imageSource;
-            [delegate imageNode:strongSelf didLoadImage:strongSelf.image info:info];
-          } else if (strongSelf->_delegateFlags.delegateDidLoadImage) {
+          if (strongSelf->_delegateFlags.delegateDidLoadImage) {
             ASDN::MutexUnlocker u(strongSelf->__instanceLock__);
             [delegate imageNode:strongSelf didLoadImage:strongSelf.image];
           }
@@ -787,12 +758,10 @@
           }
           
           if ([imageContainer asdk_image] == nil && _downloader != nil) {
-            [self _downloadImageWithCompletion:^(id<ASImageContainerProtocol> imageContainer, NSError *error, id downloadIdentifier) {
-              finished(imageContainer, error, downloadIdentifier, ASNetworkImageSourceDownload);
-            }];
+            [self _downloadImageWithCompletion:finished];
           } else {
             as_log_verbose(ASImageLoadingLog(), "Decached image for %@ img: %@ urls: %@", self, [imageContainer asdk_image], URLs);
-            finished(imageContainer, nil, nil, ASNetworkImageSourceAsynchronousCache);
+            finished(imageContainer, nil, nil);
           }
         };
         
@@ -806,9 +775,7 @@
                           completion:completion];
         }
       } else {
-        [self _downloadImageWithCompletion:^(id<ASImageContainerProtocol> imageContainer, NSError *error, id downloadIdentifier) {
-          finished(imageContainer, error, downloadIdentifier, ASNetworkImageSourceDownload);
-        }];
+        [self _downloadImageWithCompletion:finished];
       }
     }
   }

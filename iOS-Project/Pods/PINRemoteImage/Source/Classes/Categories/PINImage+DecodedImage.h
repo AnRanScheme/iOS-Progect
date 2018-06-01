@@ -39,6 +39,5 @@ NSData * __nullable PINImagePNGRepresentation(PINImage * __nonnull image);
 #if PIN_TARGET_IOS
 + (nullable PINImage *)pin_decodedImageWithCGImageRef:(nonnull CGImageRef)imageRef orientation:(UIImageOrientation) orientation;
 #endif
-+ (nullable CGImageRef)pin_decodedImageRefWithCGImageRef:(nonnull CGImageRef)imageRef;
 
 @end

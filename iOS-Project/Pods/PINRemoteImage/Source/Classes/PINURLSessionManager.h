@@ -14,6 +14,7 @@ extern NSString * __nonnull const PINURLErrorDomain;
 
 @required
 - (void)didReceiveData:(nonnull NSData *)data forTask:(nonnull NSURLSessionTask *)task;
+- (void)didCompleteTask:(nonnull NSURLSessionTask *)task withError:(nullable NSError *)error;
 
 @optional
 - (void)didReceiveResponse:(nonnull NSURLResponse *)response forTask:(nonnull NSURLSessionTask *)task;
@@ -32,9 +33,15 @@ typedef void (^PINURLSessionDataTaskCompletion)(NSURLSessionTask * _Nonnull task
 
 - (void)invalidateSessionAndCancelTasks;
 
-- (void)URLSession:(nonnull NSURLSession *)session task:(nonnull NSURLSessionTask *)task didFinishCollectingMetrics:(nonnull NSURLSessionTaskMetrics *)metrics NS_AVAILABLE(10_12, 11_0);
-
 @property (atomic, weak, nullable) id <PINURLSessionManagerDelegate> delegate;
+
+/*
+ Returns a weighted average of time to first byte for the specified host.
+ More specifically, we get the time to first byte for every task that completes
+ and add it to an existing average: newAverage = (existingAverage + newTimeToFirstByte / 2)
+ This is all done on a per host basis.
+ */
+- (NSTimeInterval)weightedTimeToFirstByteForHost:(nonnull NSString *)host;
 
 #if DEBUG
 - (void)concurrentDownloads:(void (^_Nullable)(NSUInteger concurrentDownloads))concurrentDownloadsCompletion;
