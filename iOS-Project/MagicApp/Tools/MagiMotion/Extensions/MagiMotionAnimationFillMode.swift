@@ -16,10 +16,10 @@ public enum MagiMotionAnimationFillMode: Int {
     case removed
 }
 
-/**
- Converts the MotionAnimationFillMode enum value to a corresponding String.
- - Parameter mode: An MotionAnimationFillMode enum value.
- */
+/// Converts the MagiMotionAnimationFillMode enum value to a corresponding String.
+///
+/// - Parameter mode: An MagiMotionAnimationFillMode enum value.
+/// - Returns: string with MagiMotionAnimationFillMode
 public func MagiMotionAnimationFillModeToValue(mode: MagiMotionAnimationFillMode) -> String {
     switch mode {
     case .forwards:
