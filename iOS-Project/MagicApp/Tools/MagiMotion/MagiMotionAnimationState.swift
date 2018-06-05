@@ -9,6 +9,7 @@
 import UIKit
 
 public struct MagiMotionAnimationState {
+    
     /// A reference to the position.
     public var position: CGPoint?
     
@@ -72,39 +73,35 @@ public struct MagiMotionAnimationState {
     /// Completion block.
     public var completion: (() -> Void)?
     
-    /**
-     An initializer that accepts an Array of MotionAnimations.
-     - Parameter animations: An Array of MotionAnimations.
-     */
+    /// An initializer that accepts an Array of MagiMotionAnimations.
+    ///
+    /// - Parameter animations: An Array of MagiMotionAnimations.
     init(animations: [MagiMotionAnimation]) {
         append(contentsOf: animations)
     }
 }
 
 extension MagiMotionAnimationState {
-    /**
-     Adds a MotionAnimation to the current state.
-     - Parameter _ element: A MotionAnimation.
-     */
+
+    /// Adds a MotionAnimation to the current state.
+    ///
+    /// - Parameter element: A MagiMotionAnimation.
     public mutating func append(_ element: MagiMotionAnimation) {
         element.apply(&self)
     }
-    
-    /**
-     Adds an Array of MotionAnimations to the current state.
-     - Parameter contentsOf elements: An Array of MotionAnimations.
-     */
+
+    /// Adds an Array of MotionAnimations to the current state.
+    ///
+    /// - Parameter elements: An Array of MotionAnimations.
     public mutating func append(contentsOf elements: [MagiMotionAnimation]) {
         for v in elements {
             v.apply(&self)
         }
     }
     
-    /**
-     A subscript that returns a custom value for a specified key.
-     - Parameter key: A String.
-     - Returns: An optional Any value.
-     */
+    /// A subscript that returns a custom value for a specified key.
+    ///
+    /// - Parameter key: A String.
     public subscript(key: String) -> Any? {
         get {
             return custom?[key]
@@ -117,15 +114,17 @@ extension MagiMotionAnimationState {
             custom![key] = value
         }
     }
+    
 }
 
 extension MagiMotionAnimationState: ExpressibleByArrayLiteral {
-    /**
-     An initializer implementing the ExpressibleByArrayLiteral protocol.
-     - Parameter arrayLiteral elements: A list of MotionAnimations.
-     */
+    
+    /// An initializer implementing the ExpressibleByArrayLiteral protocol.
+    ///
+    /// - Parameter elements: A list of MotionAnimations.
     public init(arrayLiteral elements: MagiMotionAnimation...) {
         append(contentsOf: elements)
     }
+    
 }
 
