@@ -293,7 +293,7 @@ extension UIViewController {
             nc.setViewControllers(v, animated: true)
         } else if let container = view.superview {
             let presentingVC = presentingViewController
-            /*
+            
             motion.transition(from: self, to: next, in: container) { [weak self] (isFinishing) in
                 guard isFinishing else {
                     return
@@ -309,7 +309,7 @@ extension UIViewController {
                 self?.dismiss(animated: false) {
                     pvc.present(next, animated: false)
                 }
-            }*/
+            }
         }
     }
 }

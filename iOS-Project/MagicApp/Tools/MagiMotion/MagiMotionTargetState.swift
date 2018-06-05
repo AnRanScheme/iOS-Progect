@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// 储存各种信息
 public struct MagiMotionTargetState {
     /// The identifier value to match source and destination views.
     public var motionIdentifier: String?

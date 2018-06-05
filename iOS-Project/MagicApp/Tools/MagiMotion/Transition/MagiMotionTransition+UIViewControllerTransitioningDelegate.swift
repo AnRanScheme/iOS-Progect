@@ -57,8 +57,8 @@ extension MagiMotionTransition: UIViewControllerAnimatedTransitioning {
         fromViewController = fromViewController ?? context.viewController(forKey: .from)
         toViewController = toViewController ?? context.viewController(forKey: .to)
         transitionContainer = context.containerView
-        // todo
-        // start()
+        
+        start()
     }
     
     /**

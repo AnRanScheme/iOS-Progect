@@ -82,7 +82,8 @@ internal extension MagiMotionContext {
             } else {
                 targetState = nil
             }
-            
+            /// intersects(_ rect2: CGRect) -> Bool
+            /// 如果两个指定的矩形相交，则为true; 否则，是错误的。
             if true == targetState?.forceAnimate || container.convert(v.bounds, from: v).intersects(container.bounds) {
                 if let motionIdentifier = v.motionIdentifier {
                     identifierMap[motionIdentifier] = v

@@ -59,6 +59,18 @@
 		FAB8163E20C65EA100C92013 /* MagiMotionTransition+UIViewControllerTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8163D20C65EA100C92013 /* MagiMotionTransition+UIViewControllerTransitioningDelegate.swift */; };
 		FAB8164020C65F0D00C92013 /* MagiMotionTransition+Start.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8163F20C65F0D00C92013 /* MagiMotionTransition+Start.swift */; };
 		FAB8164220C6669000C92013 /* MagiMotionCAAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8164120C6669000C92013 /* MagiMotionCAAnimation.swift */; };
+		FAB8164420C687EE00C92013 /* MagiMotionCoreAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8164320C687EE00C92013 /* MagiMotionCoreAnimator.swift */; };
+		FAB8164820C6886100C92013 /* MagiMotionCoreAnimationViewContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8164720C6886100C92013 /* MagiMotionCoreAnimationViewContext.swift */; };
+		FAB8164A20C688A100C92013 /* MagiMotionAnimatorViewContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8164920C688A100C92013 /* MagiMotionAnimatorViewContext.swift */; };
+		FAB8164C20C6898200C92013 /* MagiMotionViewPropertyViewContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8164B20C6898200C92013 /* MagiMotionViewPropertyViewContext.swift */; };
+		FAB8164E20C68A1600C92013 /* MagiMotion+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8164D20C68A1600C92013 /* MagiMotion+UIKit.swift */; };
+		FAB8165020C68AD800C92013 /* MagiIgnoreSubviewModifiersPreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8164F20C68AD800C92013 /* MagiIgnoreSubviewModifiersPreprocessor.swift */; };
+		FAB8165220C68B0900C92013 /* MagiMatchPreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8165120C68B0900C92013 /* MagiMatchPreprocessor.swift */; };
+		FAB8165420C68B3D00C92013 /* MagiSourcePreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8165320C68B3D00C92013 /* MagiSourcePreprocessor.swift */; };
+		FAB8165620C68C8C00C92013 /* MagiMotionTransition+Animate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8165520C68C8C00C92013 /* MagiMotionTransition+Animate.swift */; };
+		FAB8165820C68CCB00C92013 /* MagiMotionTransition+Interactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8165720C68CCB00C92013 /* MagiMotionTransition+Interactive.swift */; };
+		FAB8165A20C68D5100C92013 /* MagiMotionTransition+UITabBarControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8165920C68D5100C92013 /* MagiMotionTransition+UITabBarControllerDelegate.swift */; };
+		FAB8165C20C68D7800C92013 /* MagiMotionTransition+CustomTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8165B20C68D7800C92013 /* MagiMotionTransition+CustomTransition.swift */; };
 		FAC61E001FAC804E00B3A1A0 /* MagiHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC61DFF1FAC804E00B3A1A0 /* MagiHomeViewController.swift */; };
 		FAC61E021FAC805E00B3A1A0 /* MagiNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC61E011FAC805E00B3A1A0 /* MagiNewsViewController.swift */; };
 		FAC61E041FAC806F00B3A1A0 /* MagiFindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC61E031FAC806F00B3A1A0 /* MagiFindViewController.swift */; };
@@ -162,6 +174,18 @@
 		FAB8163D20C65EA100C92013 /* MagiMotionTransition+UIViewControllerTransitioningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MagiMotionTransition+UIViewControllerTransitioningDelegate.swift"; sourceTree = "<group>"; };
 		FAB8163F20C65F0D00C92013 /* MagiMotionTransition+Start.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MagiMotionTransition+Start.swift"; sourceTree = "<group>"; };
 		FAB8164120C6669000C92013 /* MagiMotionCAAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagiMotionCAAnimation.swift; sourceTree = "<group>"; };
+		FAB8164320C687EE00C92013 /* MagiMotionCoreAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagiMotionCoreAnimator.swift; sourceTree = "<group>"; };
+		FAB8164720C6886100C92013 /* MagiMotionCoreAnimationViewContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagiMotionCoreAnimationViewContext.swift; sourceTree = "<group>"; };
+		FAB8164920C688A100C92013 /* MagiMotionAnimatorViewContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagiMotionAnimatorViewContext.swift; sourceTree = "<group>"; };
+		FAB8164B20C6898200C92013 /* MagiMotionViewPropertyViewContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagiMotionViewPropertyViewContext.swift; sourceTree = "<group>"; };
+		FAB8164D20C68A1600C92013 /* MagiMotion+UIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MagiMotion+UIKit.swift"; sourceTree = "<group>"; };
+		FAB8164F20C68AD800C92013 /* MagiIgnoreSubviewModifiersPreprocessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagiIgnoreSubviewModifiersPreprocessor.swift; sourceTree = "<group>"; };
+		FAB8165120C68B0900C92013 /* MagiMatchPreprocessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagiMatchPreprocessor.swift; sourceTree = "<group>"; };
+		FAB8165320C68B3D00C92013 /* MagiSourcePreprocessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagiSourcePreprocessor.swift; sourceTree = "<group>"; };
+		FAB8165520C68C8C00C92013 /* MagiMotionTransition+Animate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MagiMotionTransition+Animate.swift"; sourceTree = "<group>"; };
+		FAB8165720C68CCB00C92013 /* MagiMotionTransition+Interactive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MagiMotionTransition+Interactive.swift"; sourceTree = "<group>"; };
+		FAB8165920C68D5100C92013 /* MagiMotionTransition+UITabBarControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MagiMotionTransition+UITabBarControllerDelegate.swift"; sourceTree = "<group>"; };
+		FAB8165B20C68D7800C92013 /* MagiMotionTransition+CustomTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MagiMotionTransition+CustomTransition.swift"; sourceTree = "<group>"; };
 		FAC35F80200CB0A900883A6B /* MagiApp_pch.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MagiApp_pch.pch; sourceTree = "<group>"; };
 		FAC61DFF1FAC804E00B3A1A0 /* MagiHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagiHomeViewController.swift; sourceTree = "<group>"; };
 		FAC61E011FAC805E00B3A1A0 /* MagiNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagiNewsViewController.swift; sourceTree = "<group>"; };
@@ -597,12 +621,13 @@
 			children = (
 				FAC9958B20BFA6A900372385 /* MagiMotion+Array.swift */,
 				FAC9958D20BFA6D900372385 /* MagiMotion+CALayer.swift */,
-				FAC9958F20BFC47100372385 /* MagiMotion+Obj-C.swift */,
-				FAC9959120BFC87100372385 /* MagiMotion+UIView.swift */,
 				FAC9959720BFE66700372385 /* MagiMotion+CAMediaTimingFunction.swift */,
-				FAC9959B20BFE7A500372385 /* MagiMotionAnimationFillMode.swift */,
 				FAC9959D20BFF07200372385 /* MagiMotion+CG.swift */,
+				FAC9958F20BFC47100372385 /* MagiMotion+Obj-C.swift */,
+				FAB8164D20C68A1600C92013 /* MagiMotion+UIKit.swift */,
+				FAC9959120BFC87100372385 /* MagiMotion+UIView.swift */,
 				FAB8163920C65CD200C92013 /* MagiMotion+UIViewController.swift */,
+				FAC9959B20BFE7A500372385 /* MagiMotionAnimationFillMode.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -611,6 +636,10 @@
 			isa = PBXGroup;
 			children = (
 				FAB8162D20C655AA00C92013 /* MagiMotionAnimator.swift */,
+				FAB8164320C687EE00C92013 /* MagiMotionCoreAnimator.swift */,
+				FAB8164920C688A100C92013 /* MagiMotionAnimatorViewContext.swift */,
+				FAB8164720C6886100C92013 /* MagiMotionCoreAnimationViewContext.swift */,
+				FAB8164B20C6898200C92013 /* MagiMotionViewPropertyViewContext.swift */,
 			);
 			path = Animator;
 			sourceTree = "<group>";
@@ -621,9 +650,13 @@
 				FA247B3B20C51F2000109F1E /* MagiMotionProgressRunner.swift */,
 				FA247B3D20C531B200109F1E /* MagiMotionTransition.swift */,
 				FAB8163F20C65F0D00C92013 /* MagiMotionTransition+Start.swift */,
+				FAB8165520C68C8C00C92013 /* MagiMotionTransition+Animate.swift */,
 				FAB8163720C65C5400C92013 /* MagiMotionTransition+Complete.swift */,
-				FAB8163B20C65E2D00C92013 /* MagiMotionTransition+UINavigationControllerDelegate.swift */,
 				FAB8163D20C65EA100C92013 /* MagiMotionTransition+UIViewControllerTransitioningDelegate.swift */,
+				FAB8165920C68D5100C92013 /* MagiMotionTransition+UITabBarControllerDelegate.swift */,
+				FAB8163B20C65E2D00C92013 /* MagiMotionTransition+UINavigationControllerDelegate.swift */,
+				FAB8165B20C68D7800C92013 /* MagiMotionTransition+CustomTransition.swift */,
+				FAB8165720C68CCB00C92013 /* MagiMotionTransition+Interactive.swift */,
 			);
 			path = Transition;
 			sourceTree = "<group>";
@@ -633,8 +666,11 @@
 			children = (
 				FAB8162920C654B300C92013 /* MagiMotionPreprocessor.swift */,
 				FAB8162B20C6550A00C92013 /* MagiMotionCorePreprocessor.swift */,
-				FAB8161720C61E9300C92013 /* MagiTransitionPreprocessor.swift */,
 				FAB8162720C6523C00C92013 /* MagiCascadePreprocessor.swift */,
+				FAB8164F20C68AD800C92013 /* MagiIgnoreSubviewModifiersPreprocessor.swift */,
+				FAB8165120C68B0900C92013 /* MagiMatchPreprocessor.swift */,
+				FAB8165320C68B3D00C92013 /* MagiSourcePreprocessor.swift */,
+				FAB8161720C61E9300C92013 /* MagiTransitionPreprocessor.swift */,
 				FAB8163120C6570E00C92013 /* MagiConditionalPreprocessor.swift */,
 			);
 			path = Preprocessors;
@@ -936,11 +972,14 @@
 				FAC61E021FAC805E00B3A1A0 /* MagiNewsViewController.swift in Sources */,
 				FAC9959C20BFE7A500372385 /* MagiMotionAnimationFillMode.swift in Sources */,
 				FA247B3C20C51F2000109F1E /* MagiMotionProgressRunner.swift in Sources */,
+				FAB8165020C68AD800C92013 /* MagiIgnoreSubviewModifiersPreprocessor.swift in Sources */,
 				FAB7819A1FAC677C00EF2E87 /* Ext+UIBarButtonItem.swift in Sources */,
 				FA4348C1201044850005C259 /* CenterViewController.swift in Sources */,
+				FAB8165220C68B0900C92013 /* MagiMatchPreprocessor.swift in Sources */,
 				FAB8161820C61E9300C92013 /* MagiTransitionPreprocessor.swift in Sources */,
 				FA247B3E20C531B200109F1E /* MagiMotionTransition.swift in Sources */,
 				FAC61E081FAC809200B3A1A0 /* MagiMineViewController.swift in Sources */,
+				FAB8165420C68B3D00C92013 /* MagiSourcePreprocessor.swift in Sources */,
 				FAC9959820BFE66700372385 /* MagiMotion+CAMediaTimingFunction.swift in Sources */,
 				FAB8161E20C6269700C92013 /* MagiMotionCoordinateSpace.swift in Sources */,
 				FAC9959E20BFF07200372385 /* MagiMotion+CG.swift in Sources */,
@@ -952,14 +991,21 @@
 				FAB781B61FAC71C400EF2E87 /* MagiNavigationController.swift in Sources */,
 				FAB781991FAC677C00EF2E87 /* Ext+UIImageView.swift in Sources */,
 				FAB8162820C6523C00C92013 /* MagiCascadePreprocessor.swift in Sources */,
+				FAB8164A20C688A100C92013 /* MagiMotionAnimatorViewContext.swift in Sources */,
 				FAA8A6AE1FAAB889005160CB /* ViewController.swift in Sources */,
 				FAB8164020C65F0D00C92013 /* MagiMotionTransition+Start.swift in Sources */,
+				FAB8165A20C68D5100C92013 /* MagiMotionTransition+UITabBarControllerDelegate.swift in Sources */,
 				FAE1534D1FB43A46004F98E2 /* MagiCycleView.swift in Sources */,
 				FAD31ED8200EE64100E21B0F /* MagiCommunitCell.swift in Sources */,
 				FAA8A6AC1FAAB889005160CB /* AppDelegate.swift in Sources */,
+				FAB8165C20C68D7800C92013 /* MagiMotionTransition+CustomTransition.swift in Sources */,
 				FAB781B21FAC6D4B00EF2E87 /* MagiRegexHelper.swift in Sources */,
 				FAB8164220C6669000C92013 /* MagiMotionCAAnimation.swift in Sources */,
+				FAB8164820C6886100C92013 /* MagiMotionCoreAnimationViewContext.swift in Sources */,
+				FAB8164C20C6898200C92013 /* MagiMotionViewPropertyViewContext.swift in Sources */,
 				FAD31EDC200F264600E21B0F /* MagiCommunitViewModel.swift in Sources */,
+				FAB8164E20C68A1600C92013 /* MagiMotion+UIKit.swift in Sources */,
+				FAB8165820C68CCB00C92013 /* MagiMotionTransition+Interactive.swift in Sources */,
 				FAB8162E20C655AA00C92013 /* MagiMotionAnimator.swift in Sources */,
 				FAB8163020C6565F00C92013 /* MagiMotionSnapshotType.swift in Sources */,
 				FAB8163E20C65EA100C92013 /* MagiMotionTransition+UIViewControllerTransitioningDelegate.swift in Sources */,
@@ -976,10 +1022,12 @@
 				FAB8162C20C6550A00C92013 /* MagiMotionCorePreprocessor.swift in Sources */,
 				FAC61E061FAC808200B3A1A0 /* MagiCommunityViewController.swift in Sources */,
 				FAB8163C20C65E2D00C92013 /* MagiMotionTransition+UINavigationControllerDelegate.swift in Sources */,
+				FAB8165620C68C8C00C92013 /* MagiMotionTransition+Animate.swift in Sources */,
 				FAC61E041FAC806F00B3A1A0 /* MagiFindViewController.swift in Sources */,
 				FA4348BF20103F370005C259 /* MenuItem.swift in Sources */,
 				FAB8162420C6516400C92013 /* MagiMotionModifier.swift in Sources */,
 				FAB8161A20C6242B00C92013 /* MagiMotionViewOrderStrategy.swift in Sources */,
+				FAB8164420C687EE00C92013 /* MagiMotionCoreAnimator.swift in Sources */,
 				FA4348C5201048A10005C259 /* ContainerViewController.swift in Sources */,
 				FAB781981FAC677C00EF2E87 /* Ext+String.swift in Sources */,
 				FAC9959020BFC47100372385 /* MagiMotion+Obj-C.swift in Sources */,
