@@ -13,14 +13,18 @@ extension CALayer: CAAnimationDelegate {}
 
 internal extension CALayer {
     /// Swizzle the `add(_:forKey:) selector.
+    /// 置换方法
     internal static var motionAddedAnimations: [(CALayer, String, CAAnimation)]? = {
         let swizzling: (AnyClass, Selector, Selector) -> Void = { forClass, originalSelector, swizzledSelector in
-            if let originalMethod = class_getInstanceMethod(forClass, originalSelector), let swizzledMethod = class_getInstanceMethod(forClass, swizzledSelector) {
+            if let originalMethod = class_getInstanceMethod(forClass, originalSelector),
+               let swizzledMethod = class_getInstanceMethod(forClass, swizzledSelector) {
                 method_exchangeImplementations(originalMethod, swizzledMethod)
             }
         }
-        
-        swizzling(CALayer.self, #selector(add(_:forKey:)), #selector(motionAdd(anim:forKey:)))
+
+        swizzling(CALayer.self,
+                  #selector(add(_:forKey:)),
+                  #selector(motionAdd(anim:forKey:)))
         
         return nil
     }()
@@ -165,160 +169,159 @@ public extension CALayer {
      - Parameter completion: An optional completion block.
      */
     func animate(_ animations: [MagiMotionAnimation], completion: (() -> Void)? = nil) {
-        //startAnimations(animations, completion: completion)
+        startAnimations(animations, completion: completion)
     }
 }
 
-//fileprivate extension CALayer {
-//    /**
-//     A function that executes an Array of MotionAnimation values.
-//     - Parameter _ animations: An Array of MotionAnimations.
-//     - Parameter completion: An optional completion block.
-//     */
-//    func startAnimations(_ animations: [MagiMotionAnimation], completion: (() -> Void)? = nil) {
-//        let ts = MagiMotionAnimationState(animations: animations)
-//
-//        MagiMotion.delay(ts.delay) { [weak self,
-//            ts = ts,
-//            completion = completion] in
-//
-//            guard let `self` = self else {
-//                return
-//            }
-//
-//            var anims = [CABasicAnimation]()
-//            var duration = 0 == ts.duration ? 0.01 : ts.duration
-//
-//            if let v = ts.backgroundColor {
-//                let a = MotionCAAnimation.background(color: UIColor(cgColor: v))
-//                a.fromValue = self.backgroundColor
-//                anims.append(a)
-//            }
-//
-//            if let v = ts.borderColor {
-//                let a = MotionCAAnimation.border(color: UIColor(cgColor: v))
-//                a.fromValue = self.borderColor
-//                anims.append(a)
-//            }
-//
-//            if let v = ts.borderWidth {
-//                let a = MotionCAAnimation.border(width: v)
-//                a.fromValue = NSNumber(floatLiteral: Double(self.borderWidth))
-//                anims.append(a)
-//            }
-//
-//            if let v = ts.cornerRadius {
-//                let a = MotionCAAnimation.corner(radius: v)
-//                a.fromValue = NSNumber(floatLiteral: Double(self.cornerRadius))
-//                anims.append(a)
-//            }
-//
-//            if let v = ts.transform {
-//                let a = MotionCAAnimation.transform(v)
-//                a.fromValue = NSValue(caTransform3D: self.transform)
-//                anims.append(a)
-//            }
-//
-//            if let v = ts.spin {
-//                var a = MotionCAAnimation.spin(x: v.x)
-//                a.fromValue = NSNumber(floatLiteral: 0)
-//                anims.append(a)
-//
-//                a = MotionCAAnimation.spin(y: v.y)
-//                a.fromValue = NSNumber(floatLiteral: 0)
-//                anims.append(a)
-//
-//                a = MotionCAAnimation.spin(z: v.z)
-//                a.fromValue = NSNumber(floatLiteral: 0)
-//                anims.append(a)
-//            }
-//
-//            if let v = ts.position {
-//                let a = MotionCAAnimation.position(v)
-//                a.fromValue = NSValue(cgPoint: self.position)
-//                anims.append(a)
-//            }
-//
-//            if let v = ts.opacity {
-//                let a = MotionCAAnimation.fade(v)
-//                a.fromValue = self.value(forKeyPath: MotionAnimationKeyPath.opacity.rawValue) ?? NSNumber(floatLiteral: 1)
-//                anims.append(a)
-//            }
-//
-//            if let v = ts.zPosition {
-//                let a = MotionCAAnimation.zPosition(v)
-//                a.fromValue = self.value(forKeyPath: MotionAnimationKeyPath.zPosition.rawValue) ?? NSNumber(floatLiteral: 0)
-//                anims.append(a)
-//            }
-//
-//            if let v = ts.size {
-//                let a = MotionCAAnimation.size(v)
-//                a.fromValue = NSValue(cgSize: self.bounds.size)
-//                anims.append(a)
-//            }
-//
-//            if let v = ts.shadowPath {
-//                let a = MotionCAAnimation.shadow(path: v)
-//                a.fromValue = self.shadowPath
-//                anims.append(a)
-//            }
-//
-//            if let v = ts.shadowColor {
-//                let a = MotionCAAnimation.shadow(color: UIColor(cgColor: v))
-//                a.fromValue = self.shadowColor
-//                anims.append(a)
-//            }
-//
-//            if let v = ts.shadowOffset {
-//                let a = MotionCAAnimation.shadow(offset: v)
-//                a.fromValue = NSValue(cgSize: self.shadowOffset)
-//                anims.append(a)
-//            }
-//
-//            if let v = ts.shadowOpacity {
-//                let a = MotionCAAnimation.shadow(opacity: v)
-//                a.fromValue = NSNumber(floatLiteral: Double(self.shadowOpacity))
-//                anims.append(a)
-//            }
-//
-//            if let v = ts.shadowRadius {
-//                let a = MotionCAAnimation.shadow(radius: v)
-//                a.fromValue = NSNumber(floatLiteral: Double(self.shadowRadius))
-//                anims.append(a)
-//            }
-//
-//            if #available(iOS 9.0, *), let (stiffness, damping) = ts.spring {
-//                for i in 0..<anims.count where nil != anims[i].keyPath {
-//                    let v = anims[i]
-//
-//                    guard "cornerRadius" != v.keyPath else {
-//                        continue
-//                    }
-//
-//                    let a = MotionCAAnimation.convert(animation: v, stiffness: stiffness, damping: damping)
-//                    anims[i] = a
-//
-//                    if a.settlingDuration > duration {
-//                        duration = a.settlingDuration
-//                    }
-//                }
-//            }
-//
-//            let g = Motion.animate(group: anims, duration: duration)
-//            g.fillMode = MotionAnimationFillModeToValue(mode: .both)
-//            g.isRemovedOnCompletion = false
-//            g.timingFunction = ts.timingFunction
-//
-//            self.animate(g)
-//
-//            if let v = ts.completion {
-//                Motion.delay(duration, execute: v)
-//            }
-//
-//            if let v = completion {
-//                Motion.delay(duration, execute: v)
-//            }
-//        }
-//    }
-//}
-//
+fileprivate extension CALayer {
+    /**
+     A function that executes an Array of MotionAnimation values.
+     - Parameter _ animations: An Array of MotionAnimations.
+     - Parameter completion: An optional completion block.
+     */
+    func startAnimations(_ animations: [MagiMotionAnimation], completion: (() -> Void)? = nil) {
+        let ts = MagiMotionAnimationState(animations: animations)
+        
+        MagiMotion.delay(ts.delay) { [weak self,
+            ts = ts,
+            completion = completion] in
+            
+            guard let `self` = self else {
+                return
+            }
+            
+            var anims = [CABasicAnimation]()
+            var duration = 0 == ts.duration ? 0.01 : ts.duration
+            
+            if let v = ts.backgroundColor {
+                let a = MagiMotionCAAnimation.background(color: UIColor(cgColor: v))
+                a.fromValue = self.backgroundColor
+                anims.append(a)
+            }
+            
+            if let v = ts.borderColor {
+                let a = MagiMotionCAAnimation.border(color: UIColor(cgColor: v))
+                a.fromValue = self.borderColor
+                anims.append(a)
+            }
+            
+            if let v = ts.borderWidth {
+                let a = MagiMotionCAAnimation.border(width: v)
+                a.fromValue = NSNumber(floatLiteral: Double(self.borderWidth))
+                anims.append(a)
+            }
+            
+            if let v = ts.cornerRadius {
+                let a = MagiMotionCAAnimation.corner(radius: v)
+                a.fromValue = NSNumber(floatLiteral: Double(self.cornerRadius))
+                anims.append(a)
+            }
+            
+            if let v = ts.transform {
+                let a = MagiMotionCAAnimation.transform(v)
+                a.fromValue = NSValue(caTransform3D: self.transform)
+                anims.append(a)
+            }
+            
+            if let v = ts.spin {
+                var a = MagiMotionCAAnimation.spin(x: v.x)
+                a.fromValue = NSNumber(floatLiteral: 0)
+                anims.append(a)
+                
+                a = MagiMotionCAAnimation.spin(y: v.y)
+                a.fromValue = NSNumber(floatLiteral: 0)
+                anims.append(a)
+                
+                a = MagiMotionCAAnimation.spin(z: v.z)
+                a.fromValue = NSNumber(floatLiteral: 0)
+                anims.append(a)
+            }
+            
+            if let v = ts.position {
+                let a = MagiMotionCAAnimation.position(v)
+                a.fromValue = NSValue(cgPoint: self.position)
+                anims.append(a)
+            }
+            
+            if let v = ts.opacity {
+                let a = MagiMotionCAAnimation.fade(v)
+                a.fromValue = self.value(forKeyPath: MagiMotionAnimationKeyPath.opacity.rawValue) ?? NSNumber(floatLiteral: 1)
+                anims.append(a)
+            }
+            
+            if let v = ts.zPosition {
+                let a = MagiMotionCAAnimation.zPosition(v)
+                a.fromValue = self.value(forKeyPath: MagiMotionAnimationKeyPath.zPosition.rawValue) ?? NSNumber(floatLiteral: 0)
+                anims.append(a)
+            }
+            
+            if let v = ts.size {
+                let a = MagiMotionCAAnimation.size(v)
+                a.fromValue = NSValue(cgSize: self.bounds.size)
+                anims.append(a)
+            }
+            
+            if let v = ts.shadowPath {
+                let a = MagiMotionCAAnimation.shadow(path: v)
+                a.fromValue = self.shadowPath
+                anims.append(a)
+            }
+            
+            if let v = ts.shadowColor {
+                let a = MagiMotionCAAnimation.shadow(color: UIColor(cgColor: v))
+                a.fromValue = self.shadowColor
+                anims.append(a)
+            }
+            
+            if let v = ts.shadowOffset {
+                let a = MagiMotionCAAnimation.shadow(offset: v)
+                a.fromValue = NSValue(cgSize: self.shadowOffset)
+                anims.append(a)
+            }
+            
+            if let v = ts.shadowOpacity {
+                let a = MagiMotionCAAnimation.shadow(opacity: v)
+                a.fromValue = NSNumber(floatLiteral: Double(self.shadowOpacity))
+                anims.append(a)
+            }
+            
+            if let v = ts.shadowRadius {
+                let a = MagiMotionCAAnimation.shadow(radius: v)
+                a.fromValue = NSNumber(floatLiteral: Double(self.shadowRadius))
+                anims.append(a)
+            }
+            
+            if #available(iOS 9.0, *), let (stiffness, damping) = ts.spring {
+                for i in 0..<anims.count where nil != anims[i].keyPath {
+                    let v = anims[i]
+                    
+                    guard "cornerRadius" != v.keyPath else {
+                        continue
+                    }
+                    
+                    let a = MagiMotionCAAnimation.convert(animation: v, stiffness: stiffness, damping: damping)
+                    anims[i] = a
+                    
+                    if a.settlingDuration > duration {
+                        duration = a.settlingDuration
+                    }
+                }
+            }
+            
+            let g = MagiMotion.animate(group: anims, duration: duration)
+            g.fillMode = MagiMotionAnimationFillModeToValue(mode: .both)
+            g.isRemovedOnCompletion = false
+            g.timingFunction = ts.timingFunction
+            
+            self.animate(g)
+            
+            if let v = ts.completion {
+                MagiMotion.delay(duration, execute: v)
+            }
+            
+            if let v = completion {
+                MagiMotion.delay(duration, execute: v)
+            }
+        }
+    }
+}

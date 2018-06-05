@@ -40,23 +40,26 @@ public enum MagiMotionAnimationKeyPath: String {
 }
 
 extension CABasicAnimation {
-    /**
-     A convenience initializer that takes a given MotionAnimationKeyPath.
-     - Parameter keyPath: An MotionAnimationKeyPath.
-     */
+
+    /// A convenience initializer that takes a given MotionAnimationKeyPath.
+    ///
+    /// - Parameter keyPath: An MotionAnimationKeyPath.
     public convenience init(keyPath: MagiMotionAnimationKeyPath) {
         self.init(keyPath: keyPath.rawValue)
     }
+    
 }
 
 public struct MagiMotionCAAnimation {}
 
 fileprivate extension MagiMotionCAAnimation {
-    /**
-     Creates a CABasicAnimation.
-     - Parameter keyPath: A MotionAnimationKeyPath.
-     - Parameter toValue: An Any value that is the end state of the animation.
-     */
+
+    /// Creates a CABasicAnimation.
+    ///
+    /// - Parameters:
+    ///   - keyPath: A MotionAnimationKeyPath.
+    ///   - toValue: An Any value that is the end state of the animation.
+    /// - Returns: CABasicAnimation
     static func createAnimation(keyPath: MagiMotionAnimationKeyPath, toValue: Any) -> CABasicAnimation {
         let a = CABasicAnimation(keyPath: keyPath)
         a.toValue = toValue
@@ -67,12 +70,20 @@ fileprivate extension MagiMotionCAAnimation {
 @available(iOS 9.0, *)
 internal extension MagiMotionCAAnimation {
     /**
-     Converts a CABasicAnimation to a CASpringAnimation.
+     
      - Parameter animation: A CABasicAnimation.
      - Parameter stiffness: A CGFloat.
      - Parameter damping: A CGFloat.
      */
+    /// Converts a CABasicAnimation to a CASpringAnimation.
+    ///
+    /// - Parameters:
+    ///   - animation: A CABasicAnimation.
+    ///   - stiffness: 弹簧系数
+    ///   - damping: 阻尼系数
+    /// - Returns: A CASpringAnimation
     static func convert(animation: CABasicAnimation, stiffness: CGFloat, damping: CGFloat) -> CASpringAnimation {
+        // animation.keyPath 动画路径
         let a = CASpringAnimation(keyPath: animation.keyPath)
         a.fromValue = animation.fromValue
         a.toValue = animation.toValue
