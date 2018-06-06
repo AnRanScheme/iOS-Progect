@@ -74,7 +74,7 @@ extension AppToolbarController {
         toolbar.depthPreset = .none
         toolbar.backgroundColor = Color.blue.darken2
         
-        toolbar.title = "HealthyMind ----- 李文新"
+        toolbar.title = "安然的HealthyMind"
         toolbar.titleLabel.textColor = .white
         toolbar.titleLabel.textAlignment = .left
         
