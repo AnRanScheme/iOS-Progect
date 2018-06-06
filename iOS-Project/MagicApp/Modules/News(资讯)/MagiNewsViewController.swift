@@ -12,67 +12,270 @@ class MagiNewsViewController: MagiBaseViewController {
 
     // MARK: - 控件
     
-    fileprivate lazy var tableView: UITableView = { [weak self] in
-        let _tableView = UITableView(frame: view.bounds,
-                                     style: .plain)
-        _tableView.rowHeight = 100
-        _tableView.delegate = self
-        _tableView.dataSource = self
-        _tableView.separatorColor = UIColor.purple
-        _tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0)
-        _tableView.register(UITableViewCell.self,
-                            forCellReuseIdentifier: MagiNewsViewController.identifier)
-        return _tableView
-        }()
+    fileprivate var animatedView = UIView()
     
-    // MARK: - 属性
-    
-    fileprivate static let identifier = "CellID"
-    
+    fileprivate var button = UIButton()
+
     // MARK: - 系统方法
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
-        
+        prepareView()
+        prepareAnimatedView()
+        prepareButton()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    // MARK: - 自定义方法
-    
-    private func setupUI() {
-        view.addSubview(tableView)
-    }
-    
 }
 
-// MARK: - UITableViewDataSource
-extension MagiNewsViewController: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+extension MagiNewsViewController {
+    @objc
+    fileprivate func handleButton() {
+//        animateBackgroundColor()
+//        animateBorderColor()
+//        animateCornerRadius()
+//        animateDepth()
+//        animateFade()
+//        animatePosition()
+//        animateRotate()
+//        animateScale()
+//        animateSize()
+//        animateSpin()
+        animateSpring()
+//        animateTranslate()
+    }
+}
+
+extension MagiNewsViewController {
+    fileprivate func prepareView() {
+        view.backgroundColor = .white
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: MagiNewsViewController.identifier,
-                                                 for: indexPath) as UITableViewCell
+    fileprivate func prepareAnimatedView() {
+        animatedView.backgroundColor = Color.deepPurple.base
+        view.layout(animatedView).center().width(100).height(100)
+    }
+    
+    fileprivate func prepareButton() {
+        view.layout(button).edges()
+        button.backgroundColor = .clear
+        button.addTarget(self, action: #selector(handleButton), for: .touchUpInside)
+    }
+}
+
+extension MagiNewsViewController {
+    fileprivate func animateBackgroundColor() {
+        animatedView.shapePreset = .circle
+       
+        animatedView.animate(.delay(1),
+                             .duration(0.5),
+                             .background(color: Color.cyan.base),
+                             .completion({ [weak self] in
+                                
+                                self?.animatedView.animate(.delay(1),
+                                                           .duration(0.5),
+                                                           .background(color: Color.deepPurple.base))
+                             }))
+    }
+}
+
+extension MagiNewsViewController {
+    fileprivate func animateBorderColor() {
+        animatedView.shapePreset = .circle
+        animatedView.borderWidthPreset = .border3
+        animatedView.borderColor = Color.deepPurple.base
         
-        cell.textLabel?.text = String(describing: indexPath.row)
-        cell.backgroundColor = UIColor.blue
-        return cell
+        animatedView.animate([.delay(1),
+                              .duration(0.5),
+                              .border(color: Color.cyan.base),
+                              .border(width: BorderWidthPreset.border9.cgFloatValue * 2)]) { [weak self] in
+                                
+                                self?.animatedView.animate(.delay(1),
+                                                           .duration(0.5),
+                                                           .border(color: Color.deepPurple.base),
+                                                           .border(width: BorderWidthPreset.border3.cgFloatValue))
+        }
     }
-    
 }
 
-// MARK: - UITableViewDelegate
-extension MagiNewsViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       MagiProgressHUD.initMagiProgressHUD()
-        MagiProgressHUD.showProgress("正在加载",0.5)
+extension MagiNewsViewController {
+    fileprivate func animateCornerRadius() {
+        animatedView.animate(.delay(1),
+                             MagiMotionAnimation.duration(0.5),
+                             .corner(radius: 50),
+                             .background(color: Color.cyan.base),
+                             .completion({ [weak self] in
+                                
+                                self?.animatedView.animate(.delay(1),
+                                                           .duration(0.5),
+                                                           .corner(radius: 0),
+                                                           .background(color: Color.deepPurple.base))
+                             }))
     }
-    
 }
+
+extension MagiNewsViewController {
+    /**
+     The depth animation is made up of the following animations:
+     
+     .shadow(offset:)
+     .shadow(opacity:)
+     .shadow(radius:)
+     */
+    fileprivate func animateDepth() {
+        animatedView.shapePreset = .circle
+        animatedView.depthPreset = .depth5
+        
+        animatedView.animate(.delay(1),
+                             .duration(0.5),
+                             .depth(.none),
+                             .background(color: Color.cyan.base),
+                             .completion({ [weak self] in
+                                
+                                self?.animatedView.animate(.delay(1),
+                                                           .duration(0.5),
+                                                           .depth(.depth5),
+                                                           .background(color: Color.deepPurple.base))
+                             }))
+        
+    }
+}
+
+extension MagiNewsViewController {
+    fileprivate func animateFade() {
+        animatedView.shapePreset = .circle
+        
+        animatedView.animate([.delay(1),
+                              .duration(0.5),
+                              .fadeOut,
+                              .background(color: Color.cyan.base)]) { [weak self] in
+                                
+                                self?.animatedView.animate(.delay(1), .duration(0.5), .fadeIn, .background(color: Color.deepPurple.base))
+        }
+    }
+}
+
+extension MagiNewsViewController {
+    fileprivate func animatePosition() {
+        animatedView.shapePreset = .circle
+        
+        animatedView.animate(.delay(1),
+                             .duration(0.5),
+                             .position(CGPoint(x: 200, y: 200)),
+                             .background(color: Color.cyan.base),
+                             .completion({ [weak self, point = view.center] in
+                                
+                                self?.animatedView.animate(.delay(1),
+                                                           .duration(0.5),
+                                                           .position(point),
+                                                           .background(color: Color.deepPurple.base))
+                             }))
+    }
+}
+
+extension MagiNewsViewController {
+    fileprivate func animateRotate() {
+        animatedView.animate(.delay(1),
+                             .duration(0.5),
+                             .rotate(180),
+                             .background(color: Color.cyan.base),
+                             .completion({ [weak self] in
+                                
+                                self?.animatedView.animate(.delay(1),
+                                                           .duration(0.5),
+                                                           .rotate(0),
+                                                           .background(color: Color.deepPurple.base))
+                             }))
+    }
+}
+
+extension MagiNewsViewController {
+    fileprivate func animateScale() {
+        animatedView.shapePreset = .circle
+        
+        animatedView.animate(.delay(1),
+                             .duration(0.5),
+                             .scale(3),
+                             .background(color: Color.cyan.base),
+                             .completion({ [weak self] in
+                                
+                                self?.animatedView.animate(.delay(1),
+                                                           .duration(0.5),
+                                                           .scale(),
+                                                           .background(color: Color.deepPurple.base))
+                             }))
+    }
+}
+
+extension MagiNewsViewController {
+    fileprivate func animateSize() {
+        let size = animatedView.bounds.size
+        
+        animatedView.animate([.delay(1),
+                              .duration(0.5),
+                              .size(CGSize(width: 200, height: 200)),
+                              .background(color: Color.cyan.base)]) { [weak self] in
+                                
+                                self?.animatedView.animate(.delay(1),
+                                                           .duration(0.5),
+                                                           .size(size),
+                                                           .background(color: Color.deepPurple.base))
+        }
+    }
+}
+
+extension MagiNewsViewController {
+    fileprivate func animateSpin() {
+        animatedView.animate([.delay(1),
+                              .duration(0.5),
+                              .spin(x: 1, y: 1, z: 1),
+                              .background(color: Color.cyan.base)]) { [weak self] in
+                                
+                                self?.animatedView.animate(.delay(1),
+                                                           .duration(0.5),
+                                                           .spin(-1),
+                                                           .background(color: Color.deepPurple.base))
+        }
+    }
+}
+
+extension MagiNewsViewController {
+    fileprivate func animateSpring() {
+        let point = view.center
+        
+        animatedView.shapePreset = .circle
+        
+        animatedView.animate(.delay(1),
+                             .position(CGPoint(x: 200, y: 200)),
+                             .spring(stiffness: 15, damping: 2),
+                             .background(color: Color.cyan.base),
+                             .timingFunction(.linear),
+                             .completion({ [weak self] in
+                                
+                                self?.animatedView.animate(.position(point),
+                                                           .duration(0.5),
+                                                           .background(color: Color.deepPurple.base))
+                             }))
+    }
+}
+
+extension MagiNewsViewController {
+    fileprivate func animateTranslate() {
+        animatedView.shapePreset = .circle
+        
+        animatedView.animate([.delay(1),
+                              .duration(0.5),
+                              .translate(x: 50, y: 100),
+                              .background(color: Color.cyan.base)]) { [weak self] in
+                                
+                                self?.animatedView.animate(.delay(1),
+                                                           .duration(0.5),
+                                                           .translate(.zero),
+                                                           .background(color: Color.deepPurple.base))
+        }
+    }
+}
+
