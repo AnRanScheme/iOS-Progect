@@ -177,6 +177,59 @@
 		FAD31EDA200F1F8600E21B0F /* MagiCommunitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD31ED9200F1F8600E21B0F /* MagiCommunitModel.swift */; };
 		FAD31EDC200F264600E21B0F /* MagiCommunitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD31EDB200F264600E21B0F /* MagiCommunitViewModel.swift */; };
 		FAE1534D1FB43A46004F98E2 /* MagiCycleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE1534C1FB43A46004F98E2 /* MagiCycleView.swift */; };
+		FAF8DE4520C771D600BFBEAF /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8DE4420C771D600BFBEAF /* CardViewController.swift */; };
+		FAF8DE6720C77D1D00BFBEAF /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8DE4720C77D1C00BFBEAF /* Storage.swift */; };
+		FAF8DE6820C77D1D00BFBEAF /* ManagedEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8DE4820C77D1C00BFBEAF /* ManagedEntity.swift */; };
+		FAF8DE6920C77D1D00BFBEAF /* ManagedTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8DE4920C77D1C00BFBEAF /* ManagedTag.swift */; };
+		FAF8DE6A20C77D1D00BFBEAF /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8DE4A20C77D1C00BFBEAF /* Model.swift */; };
+		FAF8DE6B20C77D1D00BFBEAF /* ManagedActionProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8DE4B20C77D1C00BFBEAF /* ManagedActionProperty.swift */; };
+		FAF8DE6C20C77D1D00BFBEAF /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8DE4C20C77D1C00BFBEAF /* Entity.swift */; };
+		FAF8DE6D20C77D1D00BFBEAF /* ManagedActionTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8DE4D20C77D1C00BFBEAF /* ManagedActionTag.swift */; };
+		FAF8DE6E20C77D1D00BFBEAF /* ManagedEntityGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8DE4E20C77D1C00BFBEAF /* ManagedEntityGroup.swift */; };
+		FAF8DE6F20C77D1D00BFBEAF /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8DE4F20C77D1C00BFBEAF /* Container.swift */; };
+		FAF8DE7020C77D1D00BFBEAF /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8DE5120C77D1C00BFBEAF /* JSON.swift */; };
+		FAF8DE7120C77D1D00BFBEAF /* ManagedEntityTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8DE5220C77D1C00BFBEAF /* ManagedEntityTag.swift */; };
+		FAF8DE7220C77D1D00BFBEAF /* ManagedEntityProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8DE5320C77D1C00BFBEAF /* ManagedEntityProperty.swift */; };
+		FAF8DE7320C77D1D00BFBEAF /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8DE5420C77D1C00BFBEAF /* Graph.swift */; };
+		FAF8DE7420C77D1D00BFBEAF /* ManagedRelationshipGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8DE5520C77D1C00BFBEAF /* ManagedRelationshipGroup.swift */; };
+		FAF8DE7520C77D1D00BFBEAF /* ManagedRelationshipProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8DE5620C77D1C00BFBEAF /* ManagedRelationshipProperty.swift */; };
+		FAF8DE7620C77D1D00BFBEAF /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8DE5720C77D1C00BFBEAF /* File.swift */; };
+		FAF8DE7720C77D1D00BFBEAF /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8DE5820C77D1C00BFBEAF /* Context.swift */; };
+		FAF8DE7820C77D1D00BFBEAF /* Relationship.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8DE5920C77D1C00BFBEAF /* Relationship.swift */; };
+		FAF8DE7920C77D1D00BFBEAF /* ManagedActionGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8DE5A20C77D1C00BFBEAF /* ManagedActionGroup.swift */; };
+		FAF8DE7A20C77D1D00BFBEAF /* ManagedRelationship.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8DE5B20C77D1C00BFBEAF /* ManagedRelationship.swift */; };
+		FAF8DE7B20C77D1D00BFBEAF /* ManagedGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8DE5C20C77D1C00BFBEAF /* ManagedGroup.swift */; };
+		FAF8DE7C20C77D1D00BFBEAF /* ManagedAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8DE5D20C77D1C00BFBEAF /* ManagedAction.swift */; };
+		FAF8DE7D20C77D1D00BFBEAF /* ManagedNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8DE5E20C77D1C00BFBEAF /* ManagedNode.swift */; };
+		FAF8DE7E20C77D1D00BFBEAF /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8DE5F20C77D1C00BFBEAF /* Action.swift */; };
+		FAF8DE7F20C77D1D00BFBEAF /* ManagedProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8DE6020C77D1C00BFBEAF /* ManagedProperty.swift */; };
+		FAF8DE8020C77D1D00BFBEAF /* Watch.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8DE6120C77D1C00BFBEAF /* Watch.swift */; };
+		FAF8DE8120C77D1D00BFBEAF /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8DE6220C77D1C00BFBEAF /* Node.swift */; };
+		FAF8DE8220C77D1D00BFBEAF /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8DE6320C77D1C00BFBEAF /* Search.swift */; };
+		FAF8DE8320C77D1D00BFBEAF /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8DE6420C77D1C00BFBEAF /* Coordinator.swift */; };
+		FAF8DE8420C77D1D00BFBEAF /* ManagedRelationshipTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8DE6520C77D1C00BFBEAF /* ManagedRelationshipTag.swift */; };
+		FAF8DE8520C77D1D00BFBEAF /* ManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8DE6620C77D1C00BFBEAF /* ManagedObject.swift */; };
+		FAF8DE9820C77E0200BFBEAF /* photo8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FAF8DE8920C77E0200BFBEAF /* photo8.jpg */; };
+		FAF8DE9920C77E0200BFBEAF /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8DE8A20C77E0200BFBEAF /* CardTableViewCell.swift */; };
+		FAF8DE9A20C77E0200BFBEAF /* AppTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8DE8B20C77E0200BFBEAF /* AppTabBarController.swift */; };
+		FAF8DE9B20C77E0200BFBEAF /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8DE8C20C77E0200BFBEAF /* PostsViewController.swift */; };
+		FAF8DE9C20C77E0200BFBEAF /* CraphFABMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8DE8D20C77E0200BFBEAF /* CraphFABMenuController.swift */; };
+		FAF8DE9D20C77E0200BFBEAF /* photo4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FAF8DE8E20C77E0200BFBEAF /* photo4.jpg */; };
+		FAF8DE9E20C77E0200BFBEAF /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8DE8F20C77E0200BFBEAF /* SampleData.swift */; };
+		FAF8DE9F20C77E0200BFBEAF /* photo5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FAF8DE9020C77E0200BFBEAF /* photo5.jpg */; };
+		FAF8DEA020C77E0200BFBEAF /* CardTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8DE9120C77E0200BFBEAF /* CardTableView.swift */; };
+		FAF8DEA120C77E0200BFBEAF /* photo7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FAF8DE9220C77E0200BFBEAF /* photo7.jpg */; };
+		FAF8DEA220C77E0200BFBEAF /* photo6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FAF8DE9320C77E0200BFBEAF /* photo6.jpg */; };
+		FAF8DEA320C77E0200BFBEAF /* AppToolbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8DE9420C77E0200BFBEAF /* AppToolbarController.swift */; };
+		FAF8DEA420C77E0200BFBEAF /* photo2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FAF8DE9520C77E0200BFBEAF /* photo2.jpg */; };
+		FAF8DEA520C77E0200BFBEAF /* photo3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FAF8DE9620C77E0200BFBEAF /* photo3.jpg */; };
+		FAF8DEA620C77E0200BFBEAF /* photo1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FAF8DE9720C77E0200BFBEAF /* photo1.jpg */; };
+		FAF8DEB020C782E600BFBEAF /* MagiMaterialAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAF8DEA820C782E600BFBEAF /* MagiMaterialAssets.xcassets */; };
+		FAF8DEB120C782E600BFBEAF /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAF8DEAB20C782E600BFBEAF /* Roboto-Medium.ttf */; };
+		FAF8DEB220C782E600BFBEAF /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAF8DEAC20C782E600BFBEAF /* Roboto-Light.ttf */; };
+		FAF8DEB320C782E600BFBEAF /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAF8DEAD20C782E600BFBEAF /* Roboto-Regular.ttf */; };
+		FAF8DEB420C782E600BFBEAF /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAF8DEAE20C782E600BFBEAF /* Roboto-Bold.ttf */; };
+		FAF8DEB520C782E600BFBEAF /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAF8DEAF20C782E600BFBEAF /* Roboto-Thin.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -381,6 +434,60 @@
 		FAD31ED9200F1F8600E21B0F /* MagiCommunitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagiCommunitModel.swift; sourceTree = "<group>"; };
 		FAD31EDB200F264600E21B0F /* MagiCommunitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagiCommunitViewModel.swift; sourceTree = "<group>"; };
 		FAE1534C1FB43A46004F98E2 /* MagiCycleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagiCycleView.swift; sourceTree = "<group>"; };
+		FAF8DE4420C771D600BFBEAF /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
+		FAF8DE4720C77D1C00BFBEAF /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		FAF8DE4820C77D1C00BFBEAF /* ManagedEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedEntity.swift; sourceTree = "<group>"; };
+		FAF8DE4920C77D1C00BFBEAF /* ManagedTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedTag.swift; sourceTree = "<group>"; };
+		FAF8DE4A20C77D1C00BFBEAF /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		FAF8DE4B20C77D1C00BFBEAF /* ManagedActionProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedActionProperty.swift; sourceTree = "<group>"; };
+		FAF8DE4C20C77D1C00BFBEAF /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
+		FAF8DE4D20C77D1C00BFBEAF /* ManagedActionTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedActionTag.swift; sourceTree = "<group>"; };
+		FAF8DE4E20C77D1C00BFBEAF /* ManagedEntityGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedEntityGroup.swift; sourceTree = "<group>"; };
+		FAF8DE4F20C77D1C00BFBEAF /* Container.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
+		FAF8DE5020C77D1C00BFBEAF /* Graph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Graph.h; sourceTree = "<group>"; };
+		FAF8DE5120C77D1C00BFBEAF /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
+		FAF8DE5220C77D1C00BFBEAF /* ManagedEntityTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedEntityTag.swift; sourceTree = "<group>"; };
+		FAF8DE5320C77D1C00BFBEAF /* ManagedEntityProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedEntityProperty.swift; sourceTree = "<group>"; };
+		FAF8DE5420C77D1C00BFBEAF /* Graph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
+		FAF8DE5520C77D1C00BFBEAF /* ManagedRelationshipGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedRelationshipGroup.swift; sourceTree = "<group>"; };
+		FAF8DE5620C77D1C00BFBEAF /* ManagedRelationshipProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedRelationshipProperty.swift; sourceTree = "<group>"; };
+		FAF8DE5720C77D1C00BFBEAF /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		FAF8DE5820C77D1C00BFBEAF /* Context.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
+		FAF8DE5920C77D1C00BFBEAF /* Relationship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Relationship.swift; sourceTree = "<group>"; };
+		FAF8DE5A20C77D1C00BFBEAF /* ManagedActionGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedActionGroup.swift; sourceTree = "<group>"; };
+		FAF8DE5B20C77D1C00BFBEAF /* ManagedRelationship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedRelationship.swift; sourceTree = "<group>"; };
+		FAF8DE5C20C77D1C00BFBEAF /* ManagedGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedGroup.swift; sourceTree = "<group>"; };
+		FAF8DE5D20C77D1C00BFBEAF /* ManagedAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedAction.swift; sourceTree = "<group>"; };
+		FAF8DE5E20C77D1C00BFBEAF /* ManagedNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedNode.swift; sourceTree = "<group>"; };
+		FAF8DE5F20C77D1C00BFBEAF /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
+		FAF8DE6020C77D1C00BFBEAF /* ManagedProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedProperty.swift; sourceTree = "<group>"; };
+		FAF8DE6120C77D1C00BFBEAF /* Watch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Watch.swift; sourceTree = "<group>"; };
+		FAF8DE6220C77D1C00BFBEAF /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
+		FAF8DE6320C77D1C00BFBEAF /* Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		FAF8DE6420C77D1C00BFBEAF /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		FAF8DE6520C77D1C00BFBEAF /* ManagedRelationshipTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedRelationshipTag.swift; sourceTree = "<group>"; };
+		FAF8DE6620C77D1C00BFBEAF /* ManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedObject.swift; sourceTree = "<group>"; };
+		FAF8DE8920C77E0200BFBEAF /* photo8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo8.jpg; sourceTree = "<group>"; };
+		FAF8DE8A20C77E0200BFBEAF /* CardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
+		FAF8DE8B20C77E0200BFBEAF /* AppTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTabBarController.swift; sourceTree = "<group>"; };
+		FAF8DE8C20C77E0200BFBEAF /* PostsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsViewController.swift; sourceTree = "<group>"; };
+		FAF8DE8D20C77E0200BFBEAF /* CraphFABMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CraphFABMenuController.swift; sourceTree = "<group>"; };
+		FAF8DE8E20C77E0200BFBEAF /* photo4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo4.jpg; sourceTree = "<group>"; };
+		FAF8DE8F20C77E0200BFBEAF /* SampleData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
+		FAF8DE9020C77E0200BFBEAF /* photo5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo5.jpg; sourceTree = "<group>"; };
+		FAF8DE9120C77E0200BFBEAF /* CardTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardTableView.swift; sourceTree = "<group>"; };
+		FAF8DE9220C77E0200BFBEAF /* photo7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo7.jpg; sourceTree = "<group>"; };
+		FAF8DE9320C77E0200BFBEAF /* photo6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo6.jpg; sourceTree = "<group>"; };
+		FAF8DE9420C77E0200BFBEAF /* AppToolbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppToolbarController.swift; sourceTree = "<group>"; };
+		FAF8DE9520C77E0200BFBEAF /* photo2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo2.jpg; sourceTree = "<group>"; };
+		FAF8DE9620C77E0200BFBEAF /* photo3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo3.jpg; sourceTree = "<group>"; };
+		FAF8DE9720C77E0200BFBEAF /* photo1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo1.jpg; sourceTree = "<group>"; };
+		FAF8DEA820C782E600BFBEAF /* MagiMaterialAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MagiMaterialAssets.xcassets; sourceTree = "<group>"; };
+		FAF8DEAB20C782E600BFBEAF /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		FAF8DEAC20C782E600BFBEAF /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
+		FAF8DEAD20C782E600BFBEAF /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		FAF8DEAE20C782E600BFBEAF /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		FAF8DEAF20C782E600BFBEAF /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -662,6 +769,7 @@
 		FAB781881FAC618600EF2E87 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				FAF8DE4620C77D1C00BFBEAF /* MagiGraph */,
 				FAB8165E20C6904C00C92013 /* MagiMaterial */,
 				FAC9958320BFA08600372385 /* MagiMotion */,
 				FAE1534B1FB43A1B004F98E2 /* CycleScrollView */,
@@ -771,6 +879,8 @@
 		FAB8165E20C6904C00C92013 /* MagiMaterial */ = {
 			isa = PBXGroup;
 			children = (
+				FAF8DEA820C782E600BFBEAF /* MagiMaterialAssets.xcassets */,
+				FAF8DEA920C782E600BFBEAF /* MagiMaterialFont */,
 				FAB8168120C692F700C92013 /* Application.swift */,
 				FAB8166F20C692F400C92013 /* Bar.swift */,
 				FAB816A120C692FD00C92013 /* Border.swift */,
@@ -858,6 +968,7 @@
 		FAB8170820C6A04D00C92013 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				FAF8DE8820C77E0200BFBEAF /* Graph */,
 				FAB8170920C6A04D00C92013 /* RemindersViewController.swift */,
 				FAB8170A20C6A04D00C92013 /* NotesViewController.swift */,
 				FAB8170B20C6A04D00C92013 /* AppFABMenuController.swift */,
@@ -865,6 +976,8 @@
 				FAB8171020C6A2FF00C92013 /* PurpleViewController.swift */,
 				FAB8171320C6A8F800C92013 /* IdentifiterOrangeViewController.swift */,
 				FAB8171520C6A94C00C92013 /* IdentifiterPurpleViewController.swift */,
+				FAF8DE8A20C77E0200BFBEAF /* CardTableViewCell.swift */,
+				FAF8DE4420C771D600BFBEAF /* CardViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -959,6 +1072,94 @@
 				FAE1534C1FB43A46004F98E2 /* MagiCycleView.swift */,
 			);
 			path = CycleScrollView;
+			sourceTree = "<group>";
+		};
+		FAF8DE4620C77D1C00BFBEAF /* MagiGraph */ = {
+			isa = PBXGroup;
+			children = (
+				FAF8DE4720C77D1C00BFBEAF /* Storage.swift */,
+				FAF8DE4820C77D1C00BFBEAF /* ManagedEntity.swift */,
+				FAF8DE4920C77D1C00BFBEAF /* ManagedTag.swift */,
+				FAF8DE4A20C77D1C00BFBEAF /* Model.swift */,
+				FAF8DE4B20C77D1C00BFBEAF /* ManagedActionProperty.swift */,
+				FAF8DE4C20C77D1C00BFBEAF /* Entity.swift */,
+				FAF8DE4D20C77D1C00BFBEAF /* ManagedActionTag.swift */,
+				FAF8DE4E20C77D1C00BFBEAF /* ManagedEntityGroup.swift */,
+				FAF8DE4F20C77D1C00BFBEAF /* Container.swift */,
+				FAF8DE5020C77D1C00BFBEAF /* Graph.h */,
+				FAF8DE5120C77D1C00BFBEAF /* JSON.swift */,
+				FAF8DE5220C77D1C00BFBEAF /* ManagedEntityTag.swift */,
+				FAF8DE5320C77D1C00BFBEAF /* ManagedEntityProperty.swift */,
+				FAF8DE5420C77D1C00BFBEAF /* Graph.swift */,
+				FAF8DE5520C77D1C00BFBEAF /* ManagedRelationshipGroup.swift */,
+				FAF8DE5620C77D1C00BFBEAF /* ManagedRelationshipProperty.swift */,
+				FAF8DE5720C77D1C00BFBEAF /* File.swift */,
+				FAF8DE5820C77D1C00BFBEAF /* Context.swift */,
+				FAF8DE5920C77D1C00BFBEAF /* Relationship.swift */,
+				FAF8DE5A20C77D1C00BFBEAF /* ManagedActionGroup.swift */,
+				FAF8DE5B20C77D1C00BFBEAF /* ManagedRelationship.swift */,
+				FAF8DE5C20C77D1C00BFBEAF /* ManagedGroup.swift */,
+				FAF8DE5D20C77D1C00BFBEAF /* ManagedAction.swift */,
+				FAF8DE5E20C77D1C00BFBEAF /* ManagedNode.swift */,
+				FAF8DE5F20C77D1C00BFBEAF /* Action.swift */,
+				FAF8DE6020C77D1C00BFBEAF /* ManagedProperty.swift */,
+				FAF8DE6120C77D1C00BFBEAF /* Watch.swift */,
+				FAF8DE6220C77D1C00BFBEAF /* Node.swift */,
+				FAF8DE6320C77D1C00BFBEAF /* Search.swift */,
+				FAF8DE6420C77D1C00BFBEAF /* Coordinator.swift */,
+				FAF8DE6520C77D1C00BFBEAF /* ManagedRelationshipTag.swift */,
+				FAF8DE6620C77D1C00BFBEAF /* ManagedObject.swift */,
+			);
+			path = MagiGraph;
+			sourceTree = "<group>";
+		};
+		FAF8DE8820C77E0200BFBEAF /* Graph */ = {
+			isa = PBXGroup;
+			children = (
+				FAF8DEA720C781B900BFBEAF /* photos */,
+				FAF8DE8B20C77E0200BFBEAF /* AppTabBarController.swift */,
+				FAF8DE8C20C77E0200BFBEAF /* PostsViewController.swift */,
+				FAF8DE8D20C77E0200BFBEAF /* CraphFABMenuController.swift */,
+				FAF8DE8F20C77E0200BFBEAF /* SampleData.swift */,
+				FAF8DE9120C77E0200BFBEAF /* CardTableView.swift */,
+				FAF8DE9420C77E0200BFBEAF /* AppToolbarController.swift */,
+			);
+			path = Graph;
+			sourceTree = "<group>";
+		};
+		FAF8DEA720C781B900BFBEAF /* photos */ = {
+			isa = PBXGroup;
+			children = (
+				FAF8DE8920C77E0200BFBEAF /* photo8.jpg */,
+				FAF8DE8E20C77E0200BFBEAF /* photo4.jpg */,
+				FAF8DE9020C77E0200BFBEAF /* photo5.jpg */,
+				FAF8DE9220C77E0200BFBEAF /* photo7.jpg */,
+				FAF8DE9320C77E0200BFBEAF /* photo6.jpg */,
+				FAF8DE9520C77E0200BFBEAF /* photo2.jpg */,
+				FAF8DE9620C77E0200BFBEAF /* photo3.jpg */,
+				FAF8DE9720C77E0200BFBEAF /* photo1.jpg */,
+			);
+			path = photos;
+			sourceTree = "<group>";
+		};
+		FAF8DEA920C782E600BFBEAF /* MagiMaterialFont */ = {
+			isa = PBXGroup;
+			children = (
+				FAF8DEAA20C782E600BFBEAF /* Roboto */,
+			);
+			path = MagiMaterialFont;
+			sourceTree = "<group>";
+		};
+		FAF8DEAA20C782E600BFBEAF /* Roboto */ = {
+			isa = PBXGroup;
+			children = (
+				FAF8DEAB20C782E600BFBEAF /* Roboto-Medium.ttf */,
+				FAF8DEAC20C782E600BFBEAF /* Roboto-Light.ttf */,
+				FAF8DEAD20C782E600BFBEAF /* Roboto-Regular.ttf */,
+				FAF8DEAE20C782E600BFBEAF /* Roboto-Bold.ttf */,
+				FAF8DEAF20C782E600BFBEAF /* Roboto-Thin.ttf */,
+			);
+			path = Roboto;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1077,11 +1278,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAF8DE9F20C77E0200BFBEAF /* photo5.jpg in Resources */,
+				FAF8DE9D20C77E0200BFBEAF /* photo4.jpg in Resources */,
 				FAA8A6B91FAAB889005160CB /* LaunchScreen.storyboard in Resources */,
+				FAF8DE9820C77E0200BFBEAF /* photo8.jpg in Resources */,
 				FAA8A6B61FAAB889005160CB /* Assets.xcassets in Resources */,
+				FAF8DEB120C782E600BFBEAF /* Roboto-Medium.ttf in Resources */,
+				FAF8DEB220C782E600BFBEAF /* Roboto-Light.ttf in Resources */,
+				FAF8DEA620C77E0200BFBEAF /* photo1.jpg in Resources */,
+				FAF8DEA220C77E0200BFBEAF /* photo6.jpg in Resources */,
+				FAF8DEA520C77E0200BFBEAF /* photo3.jpg in Resources */,
+				FAF8DEA120C77E0200BFBEAF /* photo7.jpg in Resources */,
 				FAC9958520BFA29D00372385 /* MagiMotionInfo.plist in Resources */,
 				FAB781AE1FAC69A700EF2E87 /* tapMenu.json in Resources */,
 				FAA8A6B11FAAB889005160CB /* Main.storyboard in Resources */,
+				FAF8DEB520C782E600BFBEAF /* Roboto-Thin.ttf in Resources */,
+				FAF8DEB420C782E600BFBEAF /* Roboto-Bold.ttf in Resources */,
+				FAF8DEB320C782E600BFBEAF /* Roboto-Regular.ttf in Resources */,
+				FAF8DEA420C77E0200BFBEAF /* photo2.jpg in Resources */,
+				FAF8DEB020C782E600BFBEAF /* MagiMaterialAssets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1244,6 +1459,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAF8DE7520C77D1D00BFBEAF /* ManagedRelationshipProperty.swift in Sources */,
+				FAF8DE6D20C77D1D00BFBEAF /* ManagedActionTag.swift in Sources */,
 				FAB7819C1FAC677C00EF2E87 /* Ext+UIView.swift in Sources */,
 				FAB816F920C6930500C92013 /* Grid.swift in Sources */,
 				FAB816C320C6930400C92013 /* TextView.swift in Sources */,
@@ -1256,13 +1473,17 @@
 				FA247B3C20C51F2000109F1E /* MagiMotionProgressRunner.swift in Sources */,
 				FAB8165020C68AD800C92013 /* MagiIgnoreSubviewModifiersPreprocessor.swift in Sources */,
 				FAB816CB20C6930400C92013 /* ToolbarController.swift in Sources */,
+				FAF8DE7A20C77D1D00BFBEAF /* ManagedRelationship.swift in Sources */,
+				FAF8DE6820C77D1D00BFBEAF /* ManagedEntity.swift in Sources */,
 				FAB816FF20C6930500C92013 /* FABMenuController.swift in Sources */,
 				FAB816F620C6930500C92013 /* Screen.swift in Sources */,
 				FAB8171620C6A94C00C92013 /* IdentifiterPurpleViewController.swift in Sources */,
 				FAB7819A1FAC677C00EF2E87 /* Ext+UIBarButtonItem.swift in Sources */,
 				FAB816C020C6930400C92013 /* RobotoFont.swift in Sources */,
+				FAF8DE6C20C77D1D00BFBEAF /* Entity.swift in Sources */,
 				FAB8170520C6930500C92013 /* Divider.swift in Sources */,
 				FA4348C1201044850005C259 /* CenterViewController.swift in Sources */,
+				FAF8DE8020C77D1D00BFBEAF /* Watch.swift in Sources */,
 				FAB8165220C68B0900C92013 /* MagiMatchPreprocessor.swift in Sources */,
 				FAB8161820C61E9300C92013 /* MagiTransitionPreprocessor.swift in Sources */,
 				FAB8170020C6930500C92013 /* SearchBar.swift in Sources */,
@@ -1272,7 +1493,10 @@
 				FAB816C920C6930400C92013 /* TabsController.swift in Sources */,
 				FAC61E081FAC809200B3A1A0 /* MagiMineViewController.swift in Sources */,
 				FAB8165420C68B3D00C92013 /* MagiSourcePreprocessor.swift in Sources */,
+				FAF8DE8420C77D1D00BFBEAF /* ManagedRelationshipTag.swift in Sources */,
+				FAF8DEA320C77E0200BFBEAF /* AppToolbarController.swift in Sources */,
 				FAC9959820BFE66700372385 /* MagiMotion+CAMediaTimingFunction.swift in Sources */,
+				FAF8DE6A20C77D1D00BFBEAF /* Model.swift in Sources */,
 				FAB8161E20C6269700C92013 /* MagiMotionCoordinateSpace.swift in Sources */,
 				FAC9959E20BFF07200372385 /* MagiMotion+CG.swift in Sources */,
 				FAB8163A20C65CD200C92013 /* MagiMotion+UIViewController.swift in Sources */,
@@ -1280,9 +1504,13 @@
 				FAC9958C20BFA6A900372385 /* MagiMotion+Array.swift in Sources */,
 				FAB816F220C6930500C92013 /* Gravity.swift in Sources */,
 				FAB816E220C6930500C92013 /* SearchBarController.swift in Sources */,
+				FAF8DE7720C77D1D00BFBEAF /* Context.swift in Sources */,
 				FAB8171120C6A2FF00C92013 /* OrangeViewController.swift in Sources */,
 				FA3E6ADD2015B4AC008A8A33 /* TestTableView.swift in Sources */,
+				FAF8DE7B20C77D1D00BFBEAF /* ManagedGroup.swift in Sources */,
+				FAF8DE7F20C77D1D00BFBEAF /* ManagedProperty.swift in Sources */,
 				FAB816EE20C6930500C92013 /* Switch.swift in Sources */,
+				FAF8DE8520C77D1D00BFBEAF /* ManagedObject.swift in Sources */,
 				FAB816B920C6930400C92013 /* Font.swift in Sources */,
 				FAB781B81FAC721A00EF2E87 /* MagiTabBarController.swift in Sources */,
 				FAB816E020C6930500C92013 /* Material+Array.swift in Sources */,
@@ -1290,16 +1518,20 @@
 				FAB8163220C6570E00C92013 /* MagiConditionalPreprocessor.swift in Sources */,
 				FAB816FB20C6930500C92013 /* EdgeInsets.swift in Sources */,
 				FAB816D520C6930400C92013 /* DataSourceItem.swift in Sources */,
+				FAF8DE7820C77D1D00BFBEAF /* Relationship.swift in Sources */,
 				FAB781B61FAC71C400EF2E87 /* MagiNavigationController.swift in Sources */,
 				FAB816CA20C6930400C92013 /* Material+String.swift in Sources */,
 				FAB781991FAC677C00EF2E87 /* Ext+UIImageView.swift in Sources */,
 				FAB8170720C6930500C92013 /* TransitionController.swift in Sources */,
 				FAB8162820C6523C00C92013 /* MagiCascadePreprocessor.swift in Sources */,
+				FAF8DE7C20C77D1D00BFBEAF /* ManagedAction.swift in Sources */,
+				FAF8DE9E20C77E0200BFBEAF /* SampleData.swift in Sources */,
 				FAB8164A20C688A100C92013 /* MagiMotionAnimatorViewContext.swift in Sources */,
 				FAA8A6AE1FAAB889005160CB /* ViewController.swift in Sources */,
 				FAB816E720C6930500C92013 /* Card.swift in Sources */,
 				FAB8164020C65F0D00C92013 /* MagiMotionTransition+Start.swift in Sources */,
 				FAB816D220C6930400C92013 /* CornerRadius.swift in Sources */,
+				FAF8DE7320C77D1D00BFBEAF /* Graph.swift in Sources */,
 				FAB816F820C6930500C92013 /* TableViewController.swift in Sources */,
 				FAB816DD20C6930500C92013 /* Material+MotionAnimation.swift in Sources */,
 				FAB816D120C6930400C92013 /* Application.swift in Sources */,
@@ -1307,10 +1539,13 @@
 				FAB8171420C6A8F800C92013 /* IdentifiterOrangeViewController.swift in Sources */,
 				FAB816C420C6930400C92013 /* Depth.swift in Sources */,
 				FAB816C220C6930400C92013 /* BottomNavigationController.swift in Sources */,
+				FAF8DE6F20C77D1D00BFBEAF /* Container.swift in Sources */,
 				FAB816CD20C6930400C92013 /* SpringAnimation.swift in Sources */,
 				FAE1534D1FB43A46004F98E2 /* MagiCycleView.swift in Sources */,
+				FAF8DE7220C77D1D00BFBEAF /* ManagedEntityProperty.swift in Sources */,
 				FAD31ED8200EE64100E21B0F /* MagiCommunitCell.swift in Sources */,
 				FAA8A6AC1FAAB889005160CB /* AppDelegate.swift in Sources */,
+				FAF8DE8320C77D1D00BFBEAF /* Coordinator.swift in Sources */,
 				FAB816BC20C6930400C92013 /* ChipBarController.swift in Sources */,
 				FAB8165C20C68D7800C92013 /* MagiMotionTransition+CustomTransition.swift in Sources */,
 				FAB8170D20C6A04D00C92013 /* NotesViewController.swift in Sources */,
@@ -1319,10 +1554,14 @@
 				FAB816D920C6930400C92013 /* PulseAnimation.swift in Sources */,
 				FAB8170120C6930500C92013 /* FABMenu.swift in Sources */,
 				FAB816CF20C6930400C92013 /* TableViewCell.swift in Sources */,
+				FAF8DE8220C77D1D00BFBEAF /* Search.swift in Sources */,
+				FAF8DE7E20C77D1D00BFBEAF /* Action.swift in Sources */,
 				FAB816E320C6930500C92013 /* Material+UIFont.swift in Sources */,
 				FAB781B21FAC6D4B00EF2E87 /* MagiRegexHelper.swift in Sources */,
 				FAB816F520C6930500C92013 /* NavigationController.swift in Sources */,
+				FAF8DE7420C77D1D00BFBEAF /* ManagedRelationshipGroup.swift in Sources */,
 				FAB8164220C6669000C92013 /* MagiMotionCAAnimation.swift in Sources */,
+				FAF8DE7020C77D1D00BFBEAF /* JSON.swift in Sources */,
 				FAB8164820C6886100C92013 /* MagiMotionCoreAnimationViewContext.swift in Sources */,
 				FAB816FC20C6930500C92013 /* ErrorTextField.swift in Sources */,
 				FAB8164C20C6898200C92013 /* MagiMotionViewPropertyViewContext.swift in Sources */,
@@ -1331,14 +1570,19 @@
 				FAB816DA20C6930400C92013 /* PulseView.swift in Sources */,
 				FAB816E120C6930500C92013 /* PresenterCard.swift in Sources */,
 				FAB816EB20C6930500C92013 /* RaisedButton.swift in Sources */,
+				FAF8DE7920C77D1D00BFBEAF /* ManagedActionGroup.swift in Sources */,
 				FAB8164E20C68A1600C92013 /* MagiMotion+UIKit.swift in Sources */,
+				FAF8DE9C20C77E0200BFBEAF /* CraphFABMenuController.swift in Sources */,
 				FAB816D820C6930400C92013 /* NavigationItem.swift in Sources */,
 				FAB8165820C68CCB00C92013 /* MagiMotionTransition+Interactive.swift in Sources */,
+				FAF8DEA020C77E0200BFBEAF /* CardTableView.swift in Sources */,
 				FAB816E920C6930500C92013 /* View.swift in Sources */,
 				FAB816CC20C6930400C92013 /* DynamicFontType.swift in Sources */,
 				FAB816F420C6930500C92013 /* CollectionView.swift in Sources */,
 				FAB816C120C6930400C92013 /* StatusBarController.swift in Sources */,
+				FAF8DE6B20C77D1D00BFBEAF /* ManagedActionProperty.swift in Sources */,
 				FAB8162E20C655AA00C92013 /* MagiMotionAnimator.swift in Sources */,
+				FAF8DE6720C77D1D00BFBEAF /* Storage.swift in Sources */,
 				FAB816C820C6930400C92013 /* Snackbar.swift in Sources */,
 				FAB816BD20C6930400C92013 /* CardCollectionViewController.swift in Sources */,
 				FAB8170C20C6A04D00C92013 /* RemindersViewController.swift in Sources */,
@@ -1347,6 +1591,7 @@
 				FAB816BE20C6930400C92013 /* Material+NSMutableAttributedString.swift in Sources */,
 				FAB8163E20C65EA100C92013 /* MagiMotionTransition+UIViewControllerTransitioningDelegate.swift in Sources */,
 				FA4348BD20103EF90005C259 /* SideMenuViewController.swift in Sources */,
+				FAF8DE7620C77D1D00BFBEAF /* File.swift in Sources */,
 				FA8BB8FD1FB2F47200757636 /* MagiBaseViewController.swift in Sources */,
 				FA4348C3201045750005C259 /* MenuButton.swift in Sources */,
 				FAB8163620C659FF00C92013 /* MagiMotionTransitionObserver.swift in Sources */,
@@ -1354,8 +1599,10 @@
 				FAB816DE20C6930500C92013 /* NavigationBar.swift in Sources */,
 				FAC9958E20BFA6D900372385 /* MagiMotion+CALayer.swift in Sources */,
 				FAB781B01FAC6D2200EF2E87 /* MagiHelper.swift in Sources */,
+				FAF8DE6920C77D1D00BFBEAF /* ManagedTag.swift in Sources */,
 				FAB8171220C6A2FF00C92013 /* PurpleViewController.swift in Sources */,
 				FAB816DF20C6930500C92013 /* Offset.swift in Sources */,
+				FAF8DE6E20C77D1D00BFBEAF /* ManagedEntityGroup.swift in Sources */,
 				FAB816E420C6930500C92013 /* ChipBar.swift in Sources */,
 				FAC61E001FAC804E00B3A1A0 /* MagiHomeViewController.swift in Sources */,
 				FAC9959620BFE5A000372385 /* MagiMotionAnimationState.swift in Sources */,
@@ -1378,13 +1625,17 @@
 				FAB8170320C6930500C92013 /* DisplayStyle.swift in Sources */,
 				FAB8162420C6516400C92013 /* MagiMotionModifier.swift in Sources */,
 				FAB8161A20C6242B00C92013 /* MagiMotionViewOrderStrategy.swift in Sources */,
+				FAF8DE9920C77E0200BFBEAF /* CardTableViewCell.swift in Sources */,
 				FAB816CE20C6930400C92013 /* ImageCard.swift in Sources */,
 				FAB8164420C687EE00C92013 /* MagiMotionCoreAnimator.swift in Sources */,
 				FAB816EF20C6930500C92013 /* TextField.swift in Sources */,
 				FAB8170420C6930500C92013 /* TextStorage.swift in Sources */,
+				FAF8DE7D20C77D1D00BFBEAF /* ManagedNode.swift in Sources */,
+				FAF8DE8120C77D1D00BFBEAF /* Node.swift in Sources */,
 				FAB816D420C6930400C92013 /* CardCollectionViewCell.swift in Sources */,
 				FA4348C5201048A10005C259 /* ContainerViewController.swift in Sources */,
 				FAB781981FAC677C00EF2E87 /* Ext+String.swift in Sources */,
+				FAF8DE7120C77D1D00BFBEAF /* ManagedEntityTag.swift in Sources */,
 				FAB816EC20C6930500C92013 /* Shape.swift in Sources */,
 				FAC9959020BFC47100372385 /* MagiMotion+Obj-C.swift in Sources */,
 				FAB7819B1FAC677C00EF2E87 /* Ext+UILable.swift in Sources */,
@@ -1395,10 +1646,13 @@
 				FAB8170620C6930500C92013 /* Color.swift in Sources */,
 				FAC9959220BFC87100372385 /* MagiMotion+UIView.swift in Sources */,
 				FAB8162A20C654B300C92013 /* MagiMotionPreprocessor.swift in Sources */,
+				FAF8DE9A20C77E0200BFBEAF /* AppTabBarController.swift in Sources */,
 				FAB816E620C6930500C92013 /* CollectionViewCell.swift in Sources */,
 				FAB781B41FAC6D7900EF2E87 /* MagiProgressHUD.swift in Sources */,
 				FAB816BB20C6930400C92013 /* Material+UIImage.swift in Sources */,
 				FAB781971FAC677C00EF2E87 /* Ext+UIButton.swift in Sources */,
+				FAF8DE4520C771D600BFBEAF /* CardViewController.swift in Sources */,
+				FAF8DE9B20C77E0200BFBEAF /* PostsViewController.swift in Sources */,
 				FAB8162620C651C100C92013 /* MagiMotionTargetState.swift in Sources */,
 				FAD31EDA200F1F8600E21B0F /* MagiCommunitModel.swift in Sources */,
 				FAB816C620C6930400C92013 /* Material+UIWindow.swift in Sources */,

@@ -50,11 +50,17 @@ fileprivate extension MagiFindViewController {
         c3.backgroundColor = Color.blue.base
         c3.titleColor = .white
         c3.pulseColor = .white
+        c3.addTarget(self,
+                     action: #selector(pushFABMenu2),
+                     for: .touchUpInside)
         
         let c4 = ChipItem(title: "Chip 4")
         c4.backgroundColor = Color.blue.base
         c4.titleColor = .white
         c4.pulseColor = .white
+        c4.addTarget(self,
+                     action: #selector(pushFABMenu3),
+                     for: .touchUpInside)
         
         let c5 = ChipItem(title: "Chip 5")
         c5.backgroundColor = Color.blue.base
@@ -100,6 +106,33 @@ fileprivate extension MagiFindViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    @objc
+    func pushFABMenu2() {
+        let vc = CardViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc
+    func pushFABMenu3() {
+
+        SampleData.createSampleData()
+        
+        let graph = Graph()
+        let search = Search<Entity>(graph: graph).for(types: "Category")
+        
+        var viewControllers = [PostsViewController]()
+        
+        for category in search.sync() {
+            if let name = category["name"] as? String {
+                viewControllers.append(PostsViewController(category: name))
+            }
+        }
+        
+        let tabsController = AppTabsController(viewControllers: viewControllers)
+        let toolbarController = AppToolbarController(rootViewController: tabsController)
+        let menuController = CraphFABMenuController(rootViewController: toolbarController)
+        present(menuController, animated: true, completion: nil)
+    }
     
 }
 
