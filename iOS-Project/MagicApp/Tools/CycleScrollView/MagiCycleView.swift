@@ -160,10 +160,12 @@ public class MagiCycleView: UIView {
     public class func MagiCycleViewWithImagesCount(_ imagesCount: @escaping ImagesCount) -> MagiCycleView {
         return MagiCycleView(imagesCount: imagesCount)
     }
+    
     public func setupImageAndTitle(_ setupImageAndTitle: @escaping SetupImageAndTitle) -> Self {
         self.setupImageAndTitle = setupImageAndTitle
         return self
     }
+    
     public func setupPageDidClickAction(_ pageDidClick: PageDidClickAction?) -> Self {
         self.pageDidClick = pageDidClick
         return self

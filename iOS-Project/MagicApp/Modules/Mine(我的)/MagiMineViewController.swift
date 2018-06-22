@@ -25,5 +25,4 @@ class MagiMineViewController: MagiBaseViewController {
     }
     
     // MARK: - 自定义方法
-
 }

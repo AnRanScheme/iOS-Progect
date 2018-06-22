@@ -76,7 +76,6 @@ extension MagiCommunityViewController: ASTableDelegate {
     func tableNode(_ tableNode: ASTableNode, didSelectRowAt indexPath: IndexPath) {
         
         let vc = self.classForCoder
-        
         guard let vcs = tabBarController?.childViewControllers else{ return }
         
         for objc in vcs {
