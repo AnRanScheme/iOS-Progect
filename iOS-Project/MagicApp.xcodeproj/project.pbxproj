@@ -714,13 +714,13 @@
 		FAA8A6AA1FAAB889005160CB /* MagicApp */ = {
 			isa = PBXGroup;
 			children = (
+				FAB781891FAC61AB00EF2E87 /* BaseFramework */,
 				FAB781871FAC617800EF2E87 /* Modules */,
 				FAB781861FAC609C00EF2E87 /* Service */,
 				FAB781881FAC618600EF2E87 /* Tools */,
-				FAB781891FAC61AB00EF2E87 /* BaseFramework */,
 				FAB781A71FAC684200EF2E87 /* Resources */,
-				FAA8A6AB1FAAB889005160CB /* AppDelegate.swift */,
-				FAA8A6BA1FAAB889005160CB /* Info.plist */,
+				FAE1BBF12132EA1100708905 /* SupportFiles */,
+				FAE1BBF22132EA6600708905 /* AppDelegate */,
 			);
 			path = MagicApp;
 			sourceTree = "<group>";
@@ -1072,6 +1072,22 @@
 				FAE1534C1FB43A46004F98E2 /* MagiCycleView.swift */,
 			);
 			path = CycleScrollView;
+			sourceTree = "<group>";
+		};
+		FAE1BBF12132EA1100708905 /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				FAA8A6BA1FAAB889005160CB /* Info.plist */,
+			);
+			path = SupportFiles;
+			sourceTree = "<group>";
+		};
+		FAE1BBF22132EA6600708905 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				FAA8A6AB1FAAB889005160CB /* AppDelegate.swift */,
+			);
+			path = AppDelegate;
 			sourceTree = "<group>";
 		};
 		FAF8DE4620C77D1C00BFBEAF /* MagiGraph */ = {
