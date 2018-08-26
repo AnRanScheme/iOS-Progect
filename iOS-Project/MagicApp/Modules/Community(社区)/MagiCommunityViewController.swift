@@ -79,6 +79,7 @@ extension MagiCommunityViewController: ASTableDelegate {
         guard let vcs = tabBarController?.childViewControllers else{ return }
         
         for objc in vcs {
+            
             if objc.isKind(of: vc) {
                 print("进入")
             }

@@ -1849,7 +1849,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TDBLA72SEX;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MagicApp/MagicApp_pch.pch";
-				INFOPLIST_FILE = MagicApp/Info.plist;
+				INFOPLIST_FILE = MagicApp/SupportFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.anran.MagicApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1866,7 +1866,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TDBLA72SEX;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MagicApp/MagicApp_pch.pch";
-				INFOPLIST_FILE = MagicApp/Info.plist;
+				INFOPLIST_FILE = MagicApp/SupportFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.anran.MagicApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
