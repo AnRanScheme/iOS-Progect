@@ -73,6 +73,7 @@ extension MagiCommunityViewController: ASTableDataSource {
 }
 
 extension MagiCommunityViewController: ASTableDelegate {
+    
     func tableNode(_ tableNode: ASTableNode, didSelectRowAt indexPath: IndexPath) {
         
         let vc = self.classForCoder
